@@ -1,0 +1,15 @@
+C:\TTCore.Test\ClearScript\obj\Release\net5.0\PubTmp\Out\ClearScript.exe
+C:\TTCore.Test\ClearScript\obj\Release\net5.0\PubTmp\Out\appsettings.Development.json
+C:\TTCore.Test\ClearScript\obj\Release\net5.0\PubTmp\Out\appsettings.json
+C:\TTCore.Test\ClearScript\obj\Release\net5.0\PubTmp\Out\ClearScript.dll
+C:\TTCore.Test\ClearScript\obj\Release\net5.0\PubTmp\Out\ClearScript.deps.json
+C:\TTCore.Test\ClearScript\obj\Release\net5.0\PubTmp\Out\ClearScript.runtimeconfig.json
+C:\TTCore.Test\ClearScript\obj\Release\net5.0\PubTmp\Out\ClearScript.pdb
+C:\TTCore.Test\ClearScript\obj\Release\net5.0\PubTmp\Out\ClearScript.Core.dll
+C:\TTCore.Test\ClearScript\obj\Release\net5.0\PubTmp\Out\ClearScript.V8.dll
+C:\TTCore.Test\ClearScript\obj\Release\net5.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\TTCore.Test\ClearScript\obj\Release\net5.0\PubTmp\Out\Newtonsoft.Json.dll
+C:\TTCore.Test\ClearScript\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\TTCore.Test\ClearScript\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\TTCore.Test\ClearScript\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\TTCore.Test\ClearScript\obj\Release\net5.0\PubTmp\Out\runtimes\win-x64\native\ClearScriptV8.win-x64.dll

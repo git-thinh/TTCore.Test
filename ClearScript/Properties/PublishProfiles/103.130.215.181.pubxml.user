@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiaHAMzuWc0y5V4Y+pqihjgAAAAACAAAAAAAQZgAAAAEAACAAAACD05/ZjuLr05gz6/1PgcLfNRebMZOzyzsn2BkksRTdiwAAAAAOgAAAAAIAACAAAAABUAlm9Rkr3fm89WQa6aEQyrN5HEOGNl6wFwUC2LVErTAAAAC6vhV9PQuC9wUPc2PjKqUdKBZYN7eNdx2myQaQ3SnLkIJmH8zIpYdY8udJg4oHsHRAAAAA0WqwKDdN1Z5Dda1knDd70nnAMdRkB37oNseURvDRxV7H1g021jPxmo7syALHxiGmTDUbUSFhAe17ZJC6wM3j/g==</EncryptedPassword>
+    <_PublishTargetUrl>ftp://103.130.215.181/TTCore.StoreProvider</_PublishTargetUrl>
+    <History>True|2021-08-22T05:48:52.5492857Z;True|2021-08-22T12:37:48.7113139+07:00;True|2021-08-22T12:37:11.5789224+07:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>08/22/2021 12:34:50</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>08/22/2021 12:34:50</publishTime>
+    </File>
+    <File Include="ClearScript.Core.dll">
+      <publishTime>07/22/2021 21:53:14</publishTime>
+    </File>
+    <File Include="ClearScript.deps.json">
+      <publishTime>08/22/2021 12:48:45</publishTime>
+    </File>
+    <File Include="ClearScript.dll">
+      <publishTime>08/22/2021 12:48:45</publishTime>
+    </File>
+    <File Include="ClearScript.exe">
+      <publishTime>08/22/2021 12:48:45</publishTime>
+    </File>
+    <File Include="ClearScript.pdb">
+      <publishTime>08/22/2021 12:48:45</publishTime>
+    </File>
+    <File Include="ClearScript.runtimeconfig.json">
+      <publishTime>08/22/2021 12:48:45</publishTime>
+    </File>
+    <File Include="ClearScript.V8.dll">
+      <publishTime>07/22/2021 21:53:46</publishTime>
+    </File>
+    <File Include="Microsoft.OpenApi.dll">
+      <publishTime>08/30/2020 03:14:12</publishTime>
+    </File>
+    <File Include="Newtonsoft.Json.dll">
+      <publishTime>03/18/2021 03:03:36</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/ClearScriptV8.win-x64.dll">
+      <publishTime>07/22/2021 21:53:26</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.Swagger.dll">
+      <publishTime>08/02/2021 16:35:00</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerGen.dll">
+      <publishTime>08/02/2021 16:35:04</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerUI.dll">
+      <publishTime>08/02/2021 16:35:16</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>08/22/2021 12:48:46</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
