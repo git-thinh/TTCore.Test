@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		ReadMe.txt = ReadMe.txt
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HtmlAgilityPack.Core", "HtmlAgilityPack.Core\HtmlAgilityPack.Core.csproj", "{EC0C01B2-1305-4174-B8A9-CDB4DA9F584C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{3A4F1B55-7DE8-4610-9596-5944449DDACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A4F1B55-7DE8-4610-9596-5944449DDACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A4F1B55-7DE8-4610-9596-5944449DDACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC0C01B2-1305-4174-B8A9-CDB4DA9F584C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC0C01B2-1305-4174-B8A9-CDB4DA9F584C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC0C01B2-1305-4174-B8A9-CDB4DA9F584C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC0C01B2-1305-4174-B8A9-CDB4DA9F584C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

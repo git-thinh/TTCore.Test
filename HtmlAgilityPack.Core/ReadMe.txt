@@ -1,0 +1,3 @@
+﻿
+
+Condition Complite: NETSTANDARD2_0, NETSTANDARD

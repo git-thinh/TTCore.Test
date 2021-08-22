@@ -57,8 +57,9 @@ namespace ClearScript.Services
 
         public string Test(string url)
         {
-            if(string.IsNullOrEmpty(url)) url = "https://vnexpress.net/";
-            string s = _v8Engine.Script.get(url);
+            string s = string.Empty;
+            if (!string.IsNullOrEmpty(url))
+                s = _v8Engine.Script.get(url);
             return s;
         }
 
