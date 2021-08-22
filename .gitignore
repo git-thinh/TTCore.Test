@@ -9,3 +9,7 @@
 /TTCore.WebPImage/obj
 /WebP/bin
 /WebP/obj
+/CURL/obj
+/CURL/bin
+/Redis/bin
+/Redis/obj
