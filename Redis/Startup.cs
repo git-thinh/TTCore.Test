@@ -72,6 +72,7 @@ namespace Redis
             app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AIT.UI.Api v1"));
 
             //--------------------------------------------------------
+
             app.UseRouting();
             app.UseCors(x => x
                 .AllowAnyOrigin()
