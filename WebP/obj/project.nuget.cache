@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "mIlIASepyaZ7SGRtXTGhNHaTtqBpfHEfMTg2Xcl6BNG/su1lZN/sg92k2QvNRad3FbpjQ3LpBnFr66Nc/o5ueg==",
+  "success": true,
+  "projectFilePath": "C:\\TTCore.Test\\WebP\\WebP.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
