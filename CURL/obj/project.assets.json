@@ -1,0 +1,228 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "Microsoft.ClearScript.Core/7.1.5": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/ClearScript.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/ClearScript.Core.dll": {}
+        }
+      },
+      "Microsoft.ClearScript.V8/7.1.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.ClearScript.Core": "7.1.5"
+        },
+        "compile": {
+          "lib/net5.0/ClearScript.V8.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/ClearScript.V8.dll": {}
+        }
+      },
+      "Microsoft.ClearScript.V8.Native.win-x64/7.1.5": {
+        "type": "package",
+        "build": {
+          "build/Microsoft.ClearScript.V8.Native.win-x64.props": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win-x64/native/ClearScriptV8.win-x64.dll": {
+            "assetType": "native",
+            "rid": "win-x64"
+          }
+        }
+      },
+      "HtmlAgilityPack.Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/HtmlAgilityPack.Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HtmlAgilityPack.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Microsoft.ClearScript.Core/7.1.5": {
+      "sha512": "k3ZTRVbWx/OegHhmfa3LUDKShsuqOiHf9BTmLJja+JmI5lasSZ889dQmpEioUzbdHlaz6TeCVVxaI47JBSgQ6Q==",
+      "type": "package",
+      "path": "microsoft.clearscript.core/7.1.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "images/ClearScript.png",
+        "lib/net45/ClearScript.Core.dll",
+        "lib/net45/ClearScript.Core.xml",
+        "lib/net471/ClearScript.Core.dll",
+        "lib/net471/ClearScript.Core.xml",
+        "lib/net5.0/ClearScript.Core.dll",
+        "lib/net5.0/ClearScript.Core.xml",
+        "lib/netcoreapp3.1/ClearScript.Core.dll",
+        "lib/netcoreapp3.1/ClearScript.Core.xml",
+        "lib/netstandard2.1/ClearScript.Core.dll",
+        "lib/netstandard2.1/ClearScript.Core.xml",
+        "lib/uap10.0/ClearScript.Core.dll",
+        "lib/uap10.0/ClearScript.Core.xml",
+        "licenses/ClearScript/License.txt",
+        "licenses/V8/LICENSE",
+        "licenses/V8/LICENSE.fdlibm",
+        "licenses/V8/LICENSE.strongtalk",
+        "licenses/V8/LICENSE.v8",
+        "microsoft.clearscript.core.7.1.5.nupkg.sha512",
+        "microsoft.clearscript.core.nuspec"
+      ]
+    },
+    "Microsoft.ClearScript.V8/7.1.5": {
+      "sha512": "JyWkXKxPBLlP9FJpIq5gnqppk6a1uvVGqDQ0A0CjWrWFpn/7xJ72mW9qq9rmNv2BuAxSIWEp8tBkb0OnABfA3g==",
+      "type": "package",
+      "path": "microsoft.clearscript.v8/7.1.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "images/ClearScript.png",
+        "lib/net45/ClearScript.V8.dll",
+        "lib/net45/ClearScript.V8.xml",
+        "lib/net471/ClearScript.V8.dll",
+        "lib/net471/ClearScript.V8.xml",
+        "lib/net5.0/ClearScript.V8.dll",
+        "lib/net5.0/ClearScript.V8.xml",
+        "lib/netcoreapp3.1/ClearScript.V8.dll",
+        "lib/netcoreapp3.1/ClearScript.V8.xml",
+        "lib/netstandard2.1/ClearScript.V8.dll",
+        "lib/netstandard2.1/ClearScript.V8.xml",
+        "lib/uap10.0/ClearScript.V8.dll",
+        "lib/uap10.0/ClearScript.V8.xml",
+        "licenses/ClearScript/License.txt",
+        "licenses/V8/LICENSE",
+        "licenses/V8/LICENSE.fdlibm",
+        "licenses/V8/LICENSE.strongtalk",
+        "licenses/V8/LICENSE.v8",
+        "microsoft.clearscript.v8.7.1.5.nupkg.sha512",
+        "microsoft.clearscript.v8.nuspec"
+      ]
+    },
+    "Microsoft.ClearScript.V8.Native.win-x64/7.1.5": {
+      "sha512": "OShWxw8IRzcph/1JzOpkVtrNDiujv5QgCJLXfZskCCyY8v/Q/8sN3EftM5jSgr1lf2SncZzJU6jw4J1oouAWnQ==",
+      "type": "package",
+      "path": "microsoft.clearscript.v8.native.win-x64/7.1.5",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "build/Microsoft.ClearScript.V8.Native.win-x64.props",
+        "images/ClearScript.png",
+        "licenses/ClearScript/License.txt",
+        "licenses/V8/LICENSE",
+        "licenses/V8/LICENSE.fdlibm",
+        "licenses/V8/LICENSE.strongtalk",
+        "licenses/V8/LICENSE.v8",
+        "microsoft.clearscript.v8.native.win-x64.7.1.5.nupkg.sha512",
+        "microsoft.clearscript.v8.native.win-x64.nuspec",
+        "runtimes/win-x64/native/ClearScriptV8.win-x64.dll",
+        "tools/Install.ps1",
+        "tools/Uninstall.ps1"
+      ]
+    },
+    "HtmlAgilityPack.Core/1.0.0": {
+      "type": "project",
+      "path": "../HtmlAgilityPack.Core/HtmlAgilityPack.Core.csproj",
+      "msbuildProject": "../HtmlAgilityPack.Core/HtmlAgilityPack.Core.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "HtmlAgilityPack.Core >= 1.0.0",
+      "Microsoft.ClearScript.V8 >= 7.1.5",
+      "Microsoft.ClearScript.V8.Native.win-x64 >= 7.1.5"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\ADMIN\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\TTCore.Test\\CURL\\CURL.csproj",
+      "projectName": "CURL",
+      "projectPath": "C:\\TTCore.Test\\CURL\\CURL.csproj",
+      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
+      "outputPath": "C:\\TTCore.Test\\CURL\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "C:\\TTCore.Test\\HtmlAgilityPack.Core\\HtmlAgilityPack.Core.csproj": {
+              "projectPath": "C:\\TTCore.Test\\HtmlAgilityPack.Core\\HtmlAgilityPack.Core.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "dependencies": {
+          "Microsoft.ClearScript.V8": {
+            "target": "Package",
+            "version": "[7.1.5, )"
+          },
+          "Microsoft.ClearScript.V8.Native.win-x64": {
+            "target": "Package",
+            "version": "[7.1.5, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

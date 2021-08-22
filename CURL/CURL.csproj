@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ClearScript.V8" Version="7.1.5" />
+    <PackageReference Include="Microsoft.ClearScript.V8.Native.win-x64" Version="7.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HtmlAgilityPack.Core\HtmlAgilityPack.Core.csproj" />
+  </ItemGroup>
+
+</Project>

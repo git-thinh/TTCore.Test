@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiaHAMzuWc0y5V4Y+pqihjgAAAAACAAAAAAAQZgAAAAEAACAAAACUPW5mz6t+OZtua+l3qjnNW+nkOTYiO4fZklSFN5PcCwAAAAAOgAAAAAIAACAAAAAQwUeAkT0zHYHtl8AvPEgv/HtZungaAlfLR0OPFPIuzjAAAAAH2lboZtt77sgtQIzRGF27NJnoNMcbc9/v149MY1x3uqYuoMJdozMJuYrysXl38LxAAAAA/IKgn8PxMnsEhKSf9u60FUWaP23vTmPPPyp7bvn0i16lcEie/6cgK7XNitMVImaimuoTT+9ZMENf0lOd1hTC2Q==</EncryptedPassword>
+    <_PublishTargetUrl>ftp://103.130.215.181/CURL</_PublishTargetUrl>
+    <History>True|2021-08-22T09:58:52.2105066Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>08/22/2021 16:42:44</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>08/22/2021 16:42:44</publishTime>
+    </File>
+    <File Include="ClearScript.Core.dll">
+      <publishTime>07/22/2021 21:53:14</publishTime>
+    </File>
+    <File Include="ClearScript.V8.dll">
+      <publishTime>07/22/2021 21:53:46</publishTime>
+    </File>
+    <File Include="CURL.deps.json">
+      <publishTime>08/22/2021 16:58:46</publishTime>
+    </File>
+    <File Include="CURL.dll">
+      <publishTime>08/22/2021 16:58:46</publishTime>
+    </File>
+    <File Include="CURL.exe">
+      <publishTime>08/22/2021 16:58:46</publishTime>
+    </File>
+    <File Include="CURL.pdb">
+      <publishTime>08/22/2021 16:58:46</publishTime>
+    </File>
+    <File Include="CURL.runtimeconfig.json">
+      <publishTime>08/22/2021 16:58:46</publishTime>
+    </File>
+    <File Include="HtmlAgilityPack.Core.dll">
+      <publishTime>08/22/2021 16:58:43</publishTime>
+    </File>
+    <File Include="HtmlAgilityPack.Core.pdb">
+      <publishTime>08/22/2021 16:58:43</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/ClearScriptV8.win-x64.dll">
+      <publishTime>07/22/2021 21:53:26</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>08/22/2021 16:58:46</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

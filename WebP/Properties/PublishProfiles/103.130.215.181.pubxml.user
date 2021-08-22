@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiaHAMzuWc0y5V4Y+pqihjgAAAAACAAAAAAAQZgAAAAEAACAAAADVP+KI5Dk04k4CY+3UdwbtZbEbREi+0H+hDtTbRnjvlgAAAAAOgAAAAAIAACAAAACJnNxxUmqCLiOrbbZRmuYovbgDHUUxaxyHdmua3QlYLzAAAAApiDZK8cvU6I1tQLitvORCtJmRjOneUy0xm43kp3+2KfDBq+6PQ0mruBg6bZN+iDBAAAAAIHMc+hEeGOy5R/izQnGVLLlfgUJddPDoEP7B+pHXqC6zHY4isuSd8/KOS4OzU7qqkJDC4WwXftV7xPoIp22nVQ==</EncryptedPassword>
+    <_PublishTargetUrl>ftp://103.130.215.181/WebP</_PublishTargetUrl>
+    <History>True|2021-08-22T09:34:50.0037561Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>08/22/2021 16:05:43</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>08/22/2021 16:05:43</publishTime>
+    </File>
+    <File Include="libwebp_x64.dll">
+      <publishTime>12/12/2019 03:31:43</publishTime>
+    </File>
+    <File Include="libwebp_x86.dll">
+      <publishTime>12/12/2019 03:31:43</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll">
+      <publishTime>02/17/2021 04:59:26</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll">
+      <publishTime>02/17/2021 05:00:24</publishTime>
+    </File>
+    <File Include="System.Drawing.Common.dll">
+      <publishTime>02/17/2021 05:00:12</publishTime>
+    </File>
+    <File Include="TTCore.WebPImage.dll">
+      <publishTime>08/22/2021 16:34:42</publishTime>
+    </File>
+    <File Include="TTCore.WebPImage.pdb">
+      <publishTime>08/22/2021 16:34:42</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>08/22/2021 16:34:44</publishTime>
+    </File>
+    <File Include="WebP.deps.json">
+      <publishTime>08/22/2021 16:34:43</publishTime>
+    </File>
+    <File Include="WebP.dll">
+      <publishTime>08/22/2021 16:34:43</publishTime>
+    </File>
+    <File Include="WebP.exe">
+      <publishTime>08/22/2021 16:34:43</publishTime>
+    </File>
+    <File Include="WebP.pdb">
+      <publishTime>08/22/2021 16:34:43</publishTime>
+    </File>
+    <File Include="WebP.runtimeconfig.json">
+      <publishTime>08/22/2021 16:34:43</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
