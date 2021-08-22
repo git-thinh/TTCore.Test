@@ -35,6 +35,10 @@ namespace DinkToPdf
             var context = new CustomAssemblyLoadContext();
             context.LoadUnmanagedLibrary(Path.Combine(Directory.GetCurrentDirectory(), "libwkhtmltox.dll"));
             services.AddSingleton(typeof(IConverter), new SynchronizedConverter(new PdfTools()));
+
+            services.AddSingleton<PdfService>();
+            services.AddSingleton<IHostedService>(p => p.GetService<PdfService>());
+
             services.AddControllers();
         }
 

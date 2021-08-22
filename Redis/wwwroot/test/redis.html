@@ -9,7 +9,7 @@
     <textarea id="msg" style="width:100%;min-height:350px;"></textarea>
     <script src="/dist/signalr-msgpack.min.js"></script>
 
-    <script type="text/javascript">//var connection = new signalR.HubConnectionBuilder().withUrl("/hubs/loopymessage").build();
+    <script type="text/javascript">
         var connection = new signalR.HubConnectionBuilder()
             .withUrl("/hubs/redis")
             .withHubProtocol(new signalR.protocols.msgpack.MessagePackHubProtocol())

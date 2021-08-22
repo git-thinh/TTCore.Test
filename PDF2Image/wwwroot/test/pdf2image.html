@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>PDF2Image</title>
+    <script src="/dist/zepto-signalr-msgpack.min.js"></script>
+    <style type="text/css">
+        #images {
+        }
+
+            #images img {
+                width: 200px;
+                float: left;
+                margin: 5px;
+            }
+    </style>
+</head>
+<body>
+    <h1>PDF2Image</h1>
+    <form enctype="multipart/form-data" method="post" action="/api/file/upload">
+        <fieldset>
+            <legend style="padding: 10px;">Upload Ajax Post</legend>
+            <div class="col-xs-12" style="padding: 10px;">
+                <select id="size">
+                    <option value="100">100</option>
+                    <option value="150" selected>150</option>
+                    <option value="160">160</option>
+                    <option value="170">170</option>
+                    <option value="180">180</option>
+                    <option value="190">190</option>
+                    <option value="200">200</option>
+                    <option value="250">250</option>
+                    <option value="300">300</option>
+                </select>
+                <select id="quality">
+                    <option value="50">50</option>
+                    <option value="60">60</option>
+                    <option value="70">70</option>
+                    <option value="80">80</option>
+                    <option value="90">90</option>
+                    <option value="100" selected>100</option>
+                </select>
+                <input type="file" name="files" onchange="fileChange(this.files)">
+            </div>
+        </fieldset>
+    </form>
+    <!--<form enctype="multipart/form-data" method="post" action="/api/file/upload">
+        <fieldset>
+            <legend style="padding: 10px;">Upload Form Post</legend>
+            <div class="col-xs-12" style="padding: 10px;">
+                <input type="file" name="files" multiple>
+            </div>
+            <div style="padding: 10px;">
+                <input type="submit" value="Upload" id="ajaxUploadButton" class="btn">
+            </div>
+        </fieldset>
+    </form>-->
+    <hr />
+    <div id="images"></div>
+    <script type="text/javascript">
+        function fileChange(files) {
+            var msg = document.getElementById('images');
+            msg.innerHTML = '';
+
+            var el = document.getElementById('quality');
+            var ix = el.selectedIndex;
+            var quality = el.options[ix].text;
+
+            var el2 = document.getElementById('size');
+            var ix2 = el2.selectedIndex;
+            var size = el2.options[ix2].text;
+
+            var url = '/api/file/upload/' + size + '/' + quality;
+            console.log(url);
+
+            var formData = new FormData();
+            for (var i = 0; i < files.length; i++) {
+                formData.append(files[i].name, files[i]);
+            }
+
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (message) {
+                    console.log(message);
+                },
+                error: function () {
+                    alert("there was error uploading files!");
+                }
+            });
+        }
+
+        var connection = new signalR.HubConnectionBuilder()
+            .withUrl("/hubs/image")
+            .withHubProtocol(new signalR.protocols.msgpack.MessagePackHubProtocol())
+            .build();
+
+        connection.on("IMAGE_MESSAGE", function (m) {
+            console.log(m);
+            var msg = document.getElementById('images');
+            var img = document.createElement('img');
+            img.setAttribute('src', '/api/file/image/' + m.id);
+            msg.appendChild(img);
+        });
+
+        connection.start()
+            .then(function () { console.log('SignalR Started...'); })
+            .catch(function (err) { return console.error(err); });</script>
+</body>
+</html>

@@ -1,3 +1,6 @@
+SixLabors.ImageSharp
+
+
 Swashbuckle.AspNetCore.SwaggerGen
 Swashbuckle.AspNetCore.SwaggerUI
 

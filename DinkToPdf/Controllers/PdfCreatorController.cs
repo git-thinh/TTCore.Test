@@ -10,15 +10,44 @@ namespace DinkToPdf.Controllers
     [ApiController]
     public class PdfCreatorController : ControllerBase
     {
-        private IConverter _converter;
+        readonly IConverter _converter;
 
         public PdfCreatorController(IConverter converter)
         {
             _converter = converter;
         }
 
-        [HttpGet("test")]
-        public IActionResult CreatePDF()
+        [HttpGet("test1")]
+        public IActionResult test1()
+        {
+            var doc = new HtmlToPdfDocument()
+            {
+                GlobalSettings = {
+                    PaperSize = PaperKind.A3,
+                    Orientation = Orientation.Landscape,
+                },
+
+                Objects = {
+                    new ObjectSettings()
+                    {
+                        Page = "http://google.com/",
+                    },
+                     new ObjectSettings()
+                    {
+                        Page = "https://github.com/",
+
+                    }
+                }
+            };
+
+            byte[] pdf = _converter.Convert(doc);
+
+
+            return new FileContentResult(pdf, "application/pdf");
+        }
+
+        [HttpGet("test2")]
+        public IActionResult test2()
         {
             var globalSettings = new GlobalSettings
             {

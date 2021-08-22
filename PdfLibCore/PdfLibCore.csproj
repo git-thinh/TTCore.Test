@@ -1,0 +1,67 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="DLL\linux-x64\pdfium.so" />
+    <None Remove="DLL\osx-x64\pdfium.dylib" />
+    <None Remove="DLL\win-x64\pdfium.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\_pdf\PdfLibCore-master\assets\icon.png" Link="icon.png">
+      <PackagePath>icon.png</PackagePath>
+    </Content>
+    <Content Include="..\..\_pdf\PdfLibCore-master\LICENSE.txt" Link="LICENSE.txt">
+      <PackagePath>LICENSE.txt</PackagePath>
+    </Content>
+    <Content Include="DLL\linux-x64\pdfium.so">
+      <PackagePath>runtimes/linux-x64/native/</PackagePath>
+    </Content>
+    <Content Include="DLL\osx-x64\pdfium.dylib">
+      <PackagePath>runtimes/osx-x64/native/</PackagePath>
+    </Content>
+    <Content Include="DLL\win-x64\pdfium.dll">
+      <PackagePath>runtimes/win-x64/native/pdfium.dll</PackagePath>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Types\FPDF_TypeDef.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>FPDF_TypeDef.cs</LastGenOutput>
+    </None>
+    <None Update="Pdfium.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Pdfium.g.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Types\FPDF_TypeDef.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FPDF_TypeDef.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Pdfium.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Pdfium.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+</Project>

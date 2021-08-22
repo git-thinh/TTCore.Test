@@ -1,0 +1,15 @@
+[
+  {
+    "outputFileName": "wwwroot/dist/zepto-signalr-msgpack.min.js",
+    "inputFiles": [
+      "wwwroot/lib/js/signalr.min.js",
+      "wwwroot/lib/js/msgpack5.min.js",
+      "wwwroot/lib/js/dist/browser/signalr-protocol-msgpack.min.js",
+      "wwwroot/lib/js/zepto.min.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  }
+]
