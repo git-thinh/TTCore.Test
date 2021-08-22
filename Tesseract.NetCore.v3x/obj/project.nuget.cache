@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "ldQ87GMfrU7eaSm9xQar0Y9z3FIhVxUejpD+BhQzDR2enJE45WNaFTl9VmzTgOQEHGzvboNzqs6WS6xQuIwp3w==",
+  "success": true,
+  "projectFilePath": "C:\\TTCore.Test\\Tesseract.NetCore.v3x\\Tesseract.NetCore.v3x.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\system.drawing.common\\5.0.2\\system.drawing.common.5.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
