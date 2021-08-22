@@ -2,8 +2,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using System.IO;
 
 namespace Redis
 {
@@ -48,6 +50,20 @@ namespace Redis
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseStaticFiles();
+            foreach (var dir in Directory.GetDirectories(env.WebRootPath))
+            {
+                string folder = Path.GetFileName(dir);
+                string dirTest = Path.Combine(env.WebRootPath, folder);
+                app.UseDirectoryBrowser(new DirectoryBrowserOptions
+                {
+                    FileProvider = new PhysicalFileProvider(dirTest),
+                    RequestPath = "/" + folder
+                });
+            }
+
+            //--------------------------------------------------------
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

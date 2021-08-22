@@ -1,0 +1,14 @@
+[
+  {
+    "outputFileName": "wwwroot/dist/signalr-msgpack.min.js",
+    "inputFiles": [
+      "wwwroot/lib/js/signalr.min.js",
+      "wwwroot/lib/js/msgpack5.min.js",
+      "wwwroot/lib/js/dist/browser/signalr-protocol-msgpack.min.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  }
+]

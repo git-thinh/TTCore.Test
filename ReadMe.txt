@@ -22,3 +22,10 @@ StackExchange.Redis
 https://redis.io/topics/notifications
 $ redis-cli      > config set notify-keyspace-events KEA
 $ redis-cli--csv > psubscribe '__key*__:*' "__key*__:*" "__keyevent@*__:*"
+
+https://marketplace.visualstudio.com/items?itemName=MadsKristensen.BundlerMinifier
+
+cdnjs
+jsdelivr
+unpkg
+filesystem

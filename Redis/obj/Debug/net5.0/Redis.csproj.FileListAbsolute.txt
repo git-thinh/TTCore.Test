@@ -44,3 +44,5 @@ C:\TTCore.Test\Redis\obj\Debug\net5.0\Redis.dll
 C:\TTCore.Test\Redis\obj\Debug\net5.0\ref\Redis.dll
 C:\TTCore.Test\Redis\obj\Debug\net5.0\Redis.pdb
 C:\TTCore.Test\Redis\obj\Debug\net5.0\Redis.genruntimeconfig.cache
+C:\TTCore.Test\Redis\bin\Debug\net5.0\libman.json
+C:\TTCore.Test\Redis\bin\Debug\net5.0\bundleconfig.json

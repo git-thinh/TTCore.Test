@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Redis Msgpack</title>
+</head>
+<body>
+    <h1>Redis MsgPack</h1>
+    <textarea id="msg" style="width:100%;min-height:350px;"></textarea>
+    <script src="/dist/signalr-msgpack.min.js"></script>
+
+    <script type="text/javascript">//var connection = new signalR.HubConnectionBuilder().withUrl("/hubs/loopymessage").build();
+        var connection = new signalR.HubConnectionBuilder()
+            .withUrl("/hubs/redis")
+            .withHubProtocol(new signalR.protocols.msgpack.MessagePackHubProtocol())
+            .build();
+
+        connection.on("MESSAGE_REDIS", function (message) {
+            console.log(message);
+            var msg = document.getElementById('msg');
+            var s = message + '\r\n\r\n' + msg.value;
+            msg.value = s;
+        });
+
+        connection.start()
+            .then(function () { console.log('SignalR Started...'); })
+            .catch(function (err) { return console.error(err); });</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "microsoft-signalr@5.0.9",
+      "files": [ "signalr.min.js" ],
+      "destination": "wwwroot/lib/js/"
+    },
+    {
+      "library": "msgpack5@5.3.2",
+      "files": [ "msgpack5.min.js" ],
+      "destination": "wwwroot/lib/js/"
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "@microsoft/signalr-protocol-msgpack@5.0.9",
+      "files": [ "dist/browser/signalr-protocol-msgpack.min.js" ],
+      "destination": "wwwroot/lib/js/"
+    }
+  ]
+}

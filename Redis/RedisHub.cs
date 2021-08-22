@@ -7,7 +7,7 @@ namespace Redis
     {
         public Task Send(string message)
         {
-            return Clients.All.SendAsync("MessageRedis", message);
+            return Clients.All.SendAsync("MESSAGE_REDIS", message);
         }
     }
 }
