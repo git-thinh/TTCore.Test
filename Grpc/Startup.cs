@@ -1,4 +1,3 @@
-using ClearScript.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -6,13 +5,13 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
-namespace ClearScript
+namespace Grpc
 {
     public class Startup
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<ISearcher, ScriptV8Service>();
+            services.AddHostedService<GreeterService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

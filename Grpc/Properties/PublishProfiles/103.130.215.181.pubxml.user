@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAiaHAMzuWc0y5V4Y+pqihjgAAAAACAAAAAAAQZgAAAAEAACAAAADqTre92aUfr6daz7u3BkplTeN/z4+ydPAkxhABR5IgTwAAAAAOgAAAAAIAACAAAADkj6pnTIBC2Iy2EzL9OPKBq4EofdPSWsHeco2gBl23PDAAAABD/oJWbZX2RxQNCP9nTeEmRUESSgPnMDxnahwHIXRNq2Jw665FCYjWVJ6H1UeQlupAAAAAANHPZbcF8/35aQM8AcZUGzisdA6bV/8YbexLGiD7SAG2YaDJD9xkJpnmBJemUsHsgQUdGOL2JmOCirktoVtTfg==</EncryptedPassword>
+    <_PublishTargetUrl>ftp://103.130.215.181/TTCore.StoreProvider</_PublishTargetUrl>
+    <History>True|2021-08-22T06:10:45.8935048Z;False|2021-08-22T13:10:22.1597838+07:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>08/22/2021 12:55:56</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>08/22/2021 12:55:56</publishTime>
+    </File>
+    <File Include="Google.Protobuf.dll">
+      <publishTime>08/06/2021 14:28:10</publishTime>
+    </File>
+    <File Include="Grpc.Core.Api.dll">
+      <publishTime>08/13/2021 18:24:38</publishTime>
+    </File>
+    <File Include="Grpc.Core.dll">
+      <publishTime>08/13/2021 18:24:34</publishTime>
+    </File>
+    <File Include="Grpc.deps.json">
+      <publishTime>08/22/2021 13:10:33</publishTime>
+    </File>
+    <File Include="Grpc.dll">
+      <publishTime>08/22/2021 13:10:32</publishTime>
+    </File>
+    <File Include="Grpc.exe">
+      <publishTime>08/22/2021 13:10:32</publishTime>
+    </File>
+    <File Include="Grpc.pdb">
+      <publishTime>08/22/2021 13:10:32</publishTime>
+    </File>
+    <File Include="Grpc.runtimeconfig.json">
+      <publishTime>08/22/2021 13:10:06</publishTime>
+    </File>
+    <File Include="Microsoft.OpenApi.dll">
+      <publishTime>08/30/2020 03:14:12</publishTime>
+    </File>
+    <File Include="runtimes/linux-arm64/native/libgrpc_csharp_ext.arm64.so">
+      <publishTime>08/13/2021 03:26:48</publishTime>
+    </File>
+    <File Include="runtimes/linux-x64/native/libgrpc_csharp_ext.x64.so">
+      <publishTime>08/13/2021 03:26:48</publishTime>
+    </File>
+    <File Include="runtimes/osx-x64/native/libgrpc_csharp_ext.x64.dylib">
+      <publishTime>08/13/2021 03:26:50</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/grpc_csharp_ext.x64.dll">
+      <publishTime>08/13/2021 18:24:34</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/grpc_csharp_ext.x86.dll">
+      <publishTime>08/13/2021 18:24:34</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.Swagger.dll">
+      <publishTime>08/02/2021 16:35:00</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerGen.dll">
+      <publishTime>08/02/2021 16:35:04</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerUI.dll">
+      <publishTime>08/02/2021 16:35:16</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>08/22/2021 13:10:33</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

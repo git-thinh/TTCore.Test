@@ -1,3 +1,5 @@
 /.vs
 /ClearScript/bin
 /ClearScript/obj
+/Grpc/bin
+/Grpc/obj
