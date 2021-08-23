@@ -2,24 +2,24 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>PDF2Image</title>
+    <title>OcrImage</title>
     <script src="/dist/zepto-signalr-msgpack.min.js"></script>
     <style type="text/css">
         #images {
         }
 
             #images img {
-                width: 48%;
+                width: 30%;
                 float: left;
                 margin: 5px;
             }
     </style>
 </head>
 <body>
-    <h1>PDF2Image</h1>
-    <form enctype="multipart/form-data" method="post" action="/api/file/upload">
+    <h1>OcrImage</h1>
+    <form enctype="multipart/form-data" method="post" action="/api/ocr/upload">
         <fieldset>
-            <legend style="padding: 10px;">Upload Ajax Post</legend>
+            <legend style="padding: 10px;">Text detection</legend>
             <div class="col-xs-12" style="padding: 10px;">
                 <select id="type_ocr">
                     <option value="0" selected>ACCORD</option>
@@ -78,7 +78,7 @@
             var ix3 = el3.selectedIndex;
             var type_ocr = el3.options[ix3].value;
 
-            var url = '/api/file/upload/' + type_ocr + '/' + size + '/' + quality;
+            var url = '/api/ocr/upload/' + type_ocr + '/' + size + '/' + quality;
             console.log(url);
 
             var formData = new FormData();
@@ -110,7 +110,7 @@
             console.log(m);
             var msg = document.getElementById('images');
             var img = document.createElement('img');
-            img.setAttribute('src', '/api/file/image/' + m.id);
+            img.setAttribute('src', '/api/ocr/image/' + m.id);
             msg.appendChild(img);
         });
 

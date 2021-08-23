@@ -9,6 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Accord.NET\Class.cs" />
+    <Compile Remove="Accord.NET\ImageProcessing.cs" />
+    <Compile Remove="Accord.NET\Ocr.cs" />
+    <Compile Remove="Accord.NET\TextAreaFilter.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="pdfium.dll" />
   </ItemGroup>
 
@@ -20,10 +27,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Accord.Imaging" Version="3.8.0" />
     <PackageReference Include="BuildBundlerMinifier" Version="3.2.449" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.MessagePack" Version="5.0.9" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.113" />
+    <PackageReference Include="OpenCvSharp4" Version="4.5.3.20210817" />
+    <PackageReference Include="OpenCvSharp4.runtime.win" Version="4.5.3.20210817" />
     <PackageReference Include="SixLabors.ImageSharp" Version="1.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.1.5" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.1.5" />
@@ -42,6 +52,15 @@
   <ItemGroup>
     <None Include="wwwroot\tessdata\eng.traineddata" />
     <None Include="wwwroot\tessdata\vie.traineddata" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="AForge">
+      <HintPath>Accord.NET\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging">
+      <HintPath>Accord.NET\AForge.Imaging.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
