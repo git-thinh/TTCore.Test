@@ -1,10 +1,12 @@
 [
   {
-    "outputFileName": "wwwroot/dist/zepto-signalr-msgpack.min.js",
+    "outputFileName": "wwwroot/dist/all.min.js",
     "inputFiles": [
       "wwwroot/lib/js/signalr.min.js",
       "wwwroot/lib/js/msgpack5.min.js",
       "wwwroot/lib/js/dist/browser/signalr-protocol-msgpack.min.js",
+      "wwwroot/lib/js/vue.min.js",
+      "wwwroot/lib/js/underscore-min.js",
       "wwwroot/lib/js/zepto.min.js"
     ],
     "minify": {

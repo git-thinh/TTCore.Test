@@ -3,47 +3,112 @@
 <head>
     <meta charset="utf-8" />
     <title>PDF-Local</title>
-    <script src="/dist/zepto-signalr-msgpack.min.js"></script>
+    <script src="/dist/all.min.js"></script>
     <style type="text/css">
-        #images {
+        ul, li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
         }
 
-            #images img {
+            ul li {
+                float: left;
+                padding: 3px;
+                border-right: 1px solid #ccc;
+            }
+
+        ul, #images {
+            width: 100%;
+            display: inline-block;
+        }
+
+            #images a {
                 width: 48%;
                 float: left;
                 margin: 5px;
                 outline: 1px solid #ccc;
+                display: inline-block;
+                position: relative;
+                background-color: darkblue;
             }
+
+                #images a img {
+                    width: 100%;                    
+                }
+
+                #images a em {
+                    position: absolute;
+                    top: 5px;
+                    right: 5px;
+                    font-weight: bold;
+                    color: red;
+                }
     </style>
 </head>
 <body>
-    <div id="images"></div>
-    <script type="text/javascript">
-        var connection = new signalR.HubConnectionBuilder()
-            .withUrl("/hubs/image")
-            .withHubProtocol(new signalR.protocols.msgpack.MessagePackHubProtocol())
-            .withAutomaticReconnect()
-            .configureLogging(signalR.LogLevel.Information)
-            .build();
+    <div id="app">
+        <ul>
+            <li>File: {{file}}</li>
+            <li>Page: {{total}}</li>
+            <li>Size: {{size}}</li>
+        </ul>
+        <div id="images">
+            <a v-for="m in items" target="_blank" :href="'/local/image/'+m.id">
+                <img :src="'/local/image/' + m.id + '?_=' + (new Date().getTime())"/>
+                <em>{{toKB(m.size) + ' : ' + toKB(m.size_min)}} KB - {{m.w + ' x ' + m.h}}</em>
+            </a>
+        </div>
+    </div>
+    <script type="text/javascript"> 
+        $(document).ready(__init);
+        function __init() {
+            var __app = new Vue({
+                el: '#app',
+                data: function () {
+                    return {
+                        total: 0,
+                        size: 0,
+                        file: '',
+                        items: [],
+                    };
+                },
+                methods: {
+                    toKB: function (size) {
+                        return (size / 1024).toString().split('.')[0];
+                    }
+                }
+            });
 
-        connection.on("IMAGE_MESSAGE", function (m) {
-            console.log(m);
-            var images = document.getElementById('images');
-            if (m == 'IMAGE_CLEAR') {
-                images.innerHTML = '';
-                return;
-            }
+            var connection = new signalR.HubConnectionBuilder()
+                .withUrl("/hubs/image")
+                .withHubProtocol(new signalR.protocols.msgpack.MessagePackHubProtocol())
+                .withAutomaticReconnect()
+                .configureLogging(signalR.LogLevel.Information)
+                .build();
 
-            var a = document.createElement('a');
-            a.setAttribute('target', '_blank');
-            var link = '/local/image/' + m.id;
-            a.setAttribute('href', link);
-            a.innerHTML = '<img src="' + link + '"/>';
-            images.appendChild(a);
-        });
+            connection.on("IMAGE_MESSAGE", function (m) {
+                console.log(m);
+                var images = document.getElementById('images');
+                if (typeof m == 'string') {
+                    if (m == 'IMAGE_CLEAR') {
+                        __app.items = [];
+                        return;
+                    } else if (m.indexOf('FILE') == 0) {
+                        __app.file = m.substr(4);
+                        return;
+                    }
+                    return;
+                }
 
-        connection.start()
-            .then(function () { console.log('SignalR Started...'); })
-            .catch(function (err) { return console.error(err); });</script>
+                __app.total = m.total;
+                __app.items.push(m);
+            });
+
+            connection.start()
+                .then(function () { console.log('SignalR Started...'); })
+                .catch(function (err) { return console.error(err); });
+        }
+
+    </script>
 </body>
 </html>

@@ -6,6 +6,7 @@
         public int w { set; get; }
         public int h { set; get; }
         public int size { set; get; }
+        public int size_min { set; get; }
         public int quality { set; get; }
         public int total { set; get; }
     }

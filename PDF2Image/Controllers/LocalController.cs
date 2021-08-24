@@ -7,6 +7,7 @@ using System.IO;
 using System.Drawing;
 using Microsoft.AspNetCore.Hosting;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace PDF2Image.Controllers
 {
@@ -23,7 +24,7 @@ namespace PDF2Image.Controllers
         }
 
         [HttpGet("push-files")]
-        public string pushFiles(string path, string files)
+        public async Task<string> pushFiles(string path, string files)
         {
             if (!string.IsNullOrEmpty(path) && !string.IsNullOrEmpty(files))
             {
@@ -31,9 +32,12 @@ namespace PDF2Image.Controllers
                 string file = a[0];
                 if (System.IO.File.Exists(file))
                 {
-                    _hubContext.Clients.All.SendAsync("IMAGE_MESSAGE", "IMAGE_CLEAR").GetAwaiter();
+                    for (int i = 0; i < _cache.Length; i++) _cache[0] = null;
+
+                    await _hubContext.Clients.All.SendAsync("IMAGE_MESSAGE", "IMAGE_CLEAR");
+                    await _hubContext.Clients.All.SendAsync("IMAGE_MESSAGE", "FILE" + Path.GetFileName(a[0]));
                     var buf = System.IO.File.ReadAllBytes(file);
-                    Ocr.__PDF2Image(_hubContext, _cache, buf, 200, 1);
+                    Ocr.__PDF2Image(_hubContext, _cache, buf, 200);
                 }
             }
             return "OK";

@@ -7,6 +7,16 @@
       "files": [ "zepto.min.js" ],
       "destination": "wwwroot/lib/js/"
     },
+    {
+      "library": "underscore.js@1.13.1",
+      "files": [ "underscore-min.js" ],
+      "destination": "wwwroot/lib/js/"
+    },
+    {
+      "library": "vue@2.6.14",
+      "files": [ "vue.min.js" ],
+      "destination": "wwwroot/lib/js/"
+    },
 
     {
       "library": "microsoft-signalr@5.0.9",
