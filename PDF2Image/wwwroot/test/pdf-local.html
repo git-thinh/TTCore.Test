@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>PDF-Local</title>
+    <script src="/dist/zepto-signalr-msgpack.min.js"></script>
+    <style type="text/css">
+        #images {
+        }
+
+            #images img {
+                width: 48%;
+                float: left;
+                margin: 5px;
+                outline: 1px solid #ccc;
+            }
+    </style>
+</head>
+<body>
+    <div id="images"></div>
+    <script type="text/javascript">
+        var connection = new signalR.HubConnectionBuilder()
+            .withUrl("/hubs/image")
+            .withHubProtocol(new signalR.protocols.msgpack.MessagePackHubProtocol())
+            .withAutomaticReconnect()
+            .configureLogging(signalR.LogLevel.Information)
+            .build();
+
+        connection.on("IMAGE_MESSAGE", function (m) {
+            console.log(m);
+            var images = document.getElementById('images');
+            if (m == 'IMAGE_CLEAR') {
+                images.innerHTML = '';
+                return;
+            }
+
+            var a = document.createElement('a');
+            a.setAttribute('target', '_blank');
+            var link = '/local/image/' + m.id;
+            a.setAttribute('href', link);
+            a.innerHTML = '<img src="' + link + '"/>';
+            images.appendChild(a);
+        });
+
+        connection.start()
+            .then(function () { console.log('SignalR Started...'); })
+            .catch(function (err) { return console.error(err); });</script>
+</body>
+</html>

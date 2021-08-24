@@ -44,7 +44,7 @@
                     <option value="90">90</option>
                     <option value="100" selected>100</option>
                 </select>
-                <input type="file" name="files" onchange="fileChange(this.files)">
+                <input type="file" name="files" onchange="fileChange(this.files)"/>
             </div>
         </fieldset>
     </form>
@@ -63,6 +63,8 @@
     <div id="images"></div>
     <script type="text/javascript">
         function fileChange(files) {
+            if (files == null || files.length == 0) return;
+
             var msg = document.getElementById('images');
             msg.innerHTML = '';
 
@@ -78,14 +80,13 @@
             var ix3 = el3.selectedIndex;
             var type_ocr = el3.options[ix3].value;
 
-            var url = '/api/file/upload/' + type_ocr + '/' + size + '/' + quality;
+            var url = '/api/file/upload/' + type_ocr + '/' + size + '/' + quality;     
             console.log(url);
 
             var formData = new FormData();
             for (var i = 0; i < files.length; i++) {
                 formData.append(files[i].name, files[i]);
             }
-
             $.ajax({
                 url: url,
                 type: 'POST',
@@ -109,9 +110,12 @@
         connection.on("IMAGE_MESSAGE", function (m) {
             console.log(m);
             var msg = document.getElementById('images');
-            var img = document.createElement('img');
-            img.setAttribute('src', '/api/file/image/' + m.id);
-            msg.appendChild(img);
+            var a = document.createElement('a');
+            a.setAttribute('target', '_blank');
+            var link = '/api/file/image/' + m.id;
+            a.setAttribute('href', link);
+            a.innerHTML = '<img src="' + link + '"/>';
+            msg.appendChild(a);
         });
 
         connection.start()

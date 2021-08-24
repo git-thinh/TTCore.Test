@@ -9,7 +9,7 @@
         }
 
             #images img {
-                width: 30%;
+                width: 49%;
                 float: left;
                 margin: 5px;
             }
@@ -17,7 +17,7 @@
 </head>
 <body>
     <h1>OcrImage</h1>
-    <form enctype="multipart/form-data" method="post" action="/api/ocr/upload">
+    <form enctype="multipart/form-data" method="post">
         <fieldset>
             <legend style="padding: 10px;">Text detection</legend>
             <div class="col-xs-12" style="padding: 10px;">
@@ -109,9 +109,12 @@
         connection.on("IMAGE_MESSAGE", function (m) {
             console.log(m);
             var msg = document.getElementById('images');
-            var img = document.createElement('img');
-            img.setAttribute('src', '/api/ocr/image/' + m.id);
-            msg.appendChild(img);
+            var a = document.createElement('a');
+            a.setAttribute('target', '_blank');
+            var link = '/api/ocr/image/' + m.id;
+            a.setAttribute('href', link);
+            a.innerHTML = '<img src="' + link + '"/>';
+            msg.appendChild(a);
         });
 
         connection.start()

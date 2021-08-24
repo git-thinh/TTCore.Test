@@ -7,6 +7,10 @@ using Tesseract;
 using System.Drawing;
 using System;
 using OpenCvSharp;
+using PdfLibCore;
+using Microsoft.AspNetCore.SignalR;
+using PDF2Image.Hubs;
+using PDF2Image.Models;
 
 namespace PDF2Image
 {
@@ -19,6 +23,55 @@ namespace PDF2Image
 
     public class Ocr
     {
+        public static void __PDF2Image(IHubContext<ImageHub> hubContext, byte[][] _cache, byte[] bytes, int size = 100, int maxPage = 100000)
+        {
+            try
+            {
+                using (var pdfDocument = new PdfDocument(bytes))
+                {
+                    int total = pdfDocument.Pages.Count;
+                    int i = 0;
+                    byte[] buf = null;
+                    foreach (var page in pdfDocument.Pages)
+                    {
+                        using (page)
+                        {
+                            var pageWidth = (int)(size * page.Size.Width / 96F);
+                            var pageHeight = (int)(size * page.Size.Height / 96F);
+                            using (var bitmap = new PdfiumBitmap(pageWidth, pageHeight, false))
+                            {
+                                page.Render(bitmap);
+                                //SaveToJpeg(bitmap.AsBmpStream(196D, 196D), Path.Combine(destination, $"{i++}.jpeg"));
+                                //bitmap.Image.Save($"{i}.jpeg");
+                                //var ms = new MemoryStream();
+                                //var img = bitmap.Image;
+                                //img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                                var raw = bitmap.Image.ToByteArray(System.Drawing.Imaging.ImageFormat.Jpeg);
+                                buf = raw;
+
+
+                                _cache[i] = buf;
+                                var o = new ImageMessage()
+                                {
+                                    id = i,
+                                    w = pageWidth,
+                                    h = pageHeight,
+                                    total = total,
+                                    quality = 0,
+                                    size = buf.Length
+                                };
+                                hubContext.Clients.All.SendAsync("IMAGE_MESSAGE", o).GetAwaiter();
+                            }
+                        }
+                        i++;
+                        if (i > maxPage) break;
+                    }
+                }
+            }
+            catch (Exception ex) { 
+            }
+        }
+
         public static byte[] __grayImage(byte[] bytes, OCR_TYPE type = OCR_TYPE.ACCORD)
         {
             byte[] buf = new byte[] { };

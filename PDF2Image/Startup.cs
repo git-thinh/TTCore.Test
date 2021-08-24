@@ -71,7 +71,8 @@ namespace PDF2Image
                 endpoints.MapControllers();
                 endpoints.MapGet("/", async context =>
                 {
-                    context.Response.Redirect("/swagger");
+                    context.Response.Redirect("/test");
+                    //context.Response.Redirect("/swagger");
                     await System.Threading.Tasks.Task.CompletedTask;
                 });
             });
