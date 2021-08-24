@@ -8,6 +8,8 @@ namespace PDF2Image.Models
     public class RawBook
     {
         public int Page { set; get; }
+        public string FileName { set; get; }
+        public string Categories { set; get; }
         public string Title { set; get; }
         public string Author { set; get; }
         public string Subject { set; get; }

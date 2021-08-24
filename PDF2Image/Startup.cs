@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using PDF2Image.Hubs;
 using PDF2Image.Services;
+using Redis;
 using System.IO;
 
 namespace PDF2Image
@@ -23,6 +24,13 @@ namespace PDF2Image
         }
         public void ConfigureServices(IServiceCollection services)
         {
+            var _redisSetting = new RedisSetting();
+            _configuration.GetSection("Redis").Bind(_redisSetting);
+            services.AddSingleton<RedisSetting>(_redisSetting);
+
+            services.AddSingleton<RedisService>();
+            services.AddSingleton<IHostedService>(p => p.GetService<RedisService>());
+
             services.AddSingleton<OcrService>();
             services.AddSingleton<IHostedService>(p => p.GetService<OcrService>());
 

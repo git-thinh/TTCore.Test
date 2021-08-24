@@ -23,39 +23,42 @@
         }
 
             #images a {
-                width: 48%;
+                width: 250px;
                 float: left;
                 margin: 5px;
                 outline: 1px solid #ccc;
                 display: inline-block;
                 position: relative;
+                min-height: 29px;
                 background-color: darkblue;
             }
 
                 #images a img {
-                    width: 100%;                    
+                    width: 100%;
                 }
 
                 #images a em {
                     position: absolute;
+                    left: 5px;
                     top: 5px;
-                    right: 5px;
                     font-weight: bold;
-                    color: red;
+                    color: white;
+                    text-align: left;
+                    width: 100%;
                 }
     </style>
 </head>
 <body>
     <div id="app">
         <ul>
-            <li>File: {{file}}</li>
+            <li style="color:red;font-size:1.5em;">File: {{file}}</li>
             <li>Page: {{total}}</li>
-            <li>Size: {{size}}</li>
+            <li>Queue: {{queue}}</li>
         </ul>
         <div id="images">
             <a v-for="m in items" target="_blank" :href="'/local/image/'+m.id">
-                <img :src="'/local/image/' + m.id + '?_=' + (new Date().getTime())"/>
-                <em>{{toKB(m.size) + ' : ' + toKB(m.size_min)}} KB - {{m.w + ' x ' + m.h}}</em>
+                <!--<img :src="'/local/image/' + m.id + '?_=' + (new Date().getTime())"/>-->
+                <em>{{ '[' + m.id + '] ' + toKB(m.size) + ' : ' + toKB(m.size_min)}} KB - {{m.w + ' x ' + m.h}}</em>
             </a>
         </div>
     </div>
@@ -66,6 +69,7 @@
                 el: '#app',
                 data: function () {
                     return {
+                        queue: 0,
                         total: 0,
                         size: 0,
                         file: '',
@@ -89,7 +93,7 @@
             connection.on("RAW_FILE", function (m) {
                 console.log(m);
                 __app.items = [];
-                __app.file = m.Title;
+                __app.file = m.FileName;
             });
             connection.on("RAW_PROCESS", function (m) {
                 console.log(m);
@@ -98,7 +102,12 @@
             });
             connection.on("RAW_DONE", function (m) {
                 console.log(m);
-                alert('DONE: ' + m);
+                __app.queue = m.Queue;
+                //alert('DONE: ' + m.File);
+            });
+            connection.on("RAW_ERROR", function (m) {
+                console.log(m);
+                alert('ERROR: ' + m);
             });
 
             connection.start()

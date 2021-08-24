@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Text;
 using System.Windows.Forms;
 
 namespace PDF2Image.FormPushUpload
@@ -54,10 +55,11 @@ namespace PDF2Image.FormPushUpload
                         if (i == 0) path = Path.GetDirectoryName(d.FileNames[i]);
                         ls.Add(Path.GetFileName(d.FileNames[i]));
                     }
-                    string url = "http://localhost:29605/local/push-files?path=" + path + "&files=" + string.Join("|", ls.ToArray());
+                    string url = Program.HOST + "/local/push-files?path=" + path;
                     try
                     {
-                        new WebClient().DownloadString(url);
+                        var data = Encoding.Unicode.GetBytes(string.Join("|", ls.ToArray()));
+                        new WebClient().UploadData(url, data);
                     }
                     catch(Exception ex) {
                         MessageBox.Show(ex.Message + Environment.NewLine + url, "Push Files");

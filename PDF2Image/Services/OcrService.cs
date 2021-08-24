@@ -9,8 +9,10 @@ using PDF2Image.Hubs;
 using PDF2Image.Models;
 using PdfLibCore;
 using PdfLibCore.Enums;
+using Redis;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
+using StackExchange.Redis;
 using System;
 using System.Collections.Concurrent;
 using System.Drawing;
@@ -32,21 +34,35 @@ namespace PDF2Image.Services
 
     public class OcrService : BackgroundService
     {
-        readonly byte[][] _cache = new byte[999][];
         readonly ILogger _logger;
         readonly IHubContext<ImageHub> _hubContext;
         readonly string ServiceName = nameof(OcrService);
         readonly IConfiguration _configuration;
         readonly string _rawPassword = string.Empty;
         readonly string _rawPath = string.Empty;
+
+        readonly RedisService _redis;
+        readonly IDatabase _redisWrite;
+        readonly IDatabase _redisRead;
+        const string REDIS_PDF = "PDF";
+        const string REDIS_TEMP = "TEMP";
+        const string REDIS_ERROR = "ERROR";
+        int QUEUE_COUNTER = 0;
+
         public OcrService(
             ILoggerFactory loggerFactory,
             IHubContext<ImageHub> hubContext,
-            IConfiguration configuration
+            IConfiguration configuration,
+            RedisService redis
             )
         {
             _logger = loggerFactory.CreateLogger(GetType());
             _hubContext = hubContext;
+
+            _redis = redis;
+            _redisWrite = _redis.GetDB(REDIS_TYPE.WRITE);
+            _redisRead = _redis.GetDB(REDIS_TYPE.READ1);
+
             _configuration = configuration;
             _rawPassword = configuration.GetSection("AppSetting:Raw:Password").Value;
             _rawPath = configuration.GetSection("AppSetting:Raw:Dir1").Value;
@@ -57,10 +73,14 @@ namespace PDF2Image.Services
         }
 
         bool _isRunning = false;
-        readonly ConcurrentQueue<Tuple<string, string>> _items = new ConcurrentQueue<Tuple<string, string>>();
         public void ZipRawPDF(string path, string files)
         {
-            _items.Enqueue(new Tuple<string, string>(path, files));
+            if (string.IsNullOrEmpty(path) || string.IsNullOrEmpty(files)) return;
+
+            var a = files.Split('|').Select(x => Path.Combine(path, x)).ToArray();
+            foreach (var f in a)
+                if (File.Exists(f))
+                    _redisWrite.HashSet(REDIS_PDF, f.ToLower(), string.Empty);
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -70,14 +90,15 @@ namespace PDF2Image.Services
 
             while (!stoppingToken.IsCancellationRequested)
             {
-                if (_isRunning == false && _items.Count > 0)
+                if (_isRunning == false)
                 {
                     _isRunning = true;
-                    if (_items.TryDequeue(out Tuple<string, string> it)
-                        && it != null)
-                    {
-                        await _zipRawBook(it.Item1, it.Item2);
-                    }
+
+                    var keys = _redisRead.HashKeys(REDIS_PDF);
+                    QUEUE_COUNTER = keys.Length;
+                    if (QUEUE_COUNTER > 0)
+                        await _zipRawBook(keys[0]);
+
                     _isRunning = false;
                 }
                 await Task.Delay(500, stoppingToken);
@@ -87,37 +108,25 @@ namespace PDF2Image.Services
             _logger.LogDebug($"{ServiceName} is stopping.");
         }
 
-        async Task _zipRawBook(string path, string files)
+        async Task _zipRawBook(string file)
         {
-            var a = files.Split('|').Select(x => Path.Combine(path, x)).ToArray();
-            string file = a[0];
-            if (File.Exists(file))
-            {
-                for (int i = 0; i < _cache.Length; i++) _cache[0] = null;
-                string fileName = Path.GetFileNameWithoutExtension(a[0]);
-
-                //await _hubContext.Clients.All.SendAsync("RAW_FILE", fileName);
-                var buf = File.ReadAllBytes(file);
-                __PDF2Image(buf, fileName, _hubContext);
-                await _hubContext.Clients.All.SendAsync("RAW_DONE", file);
-            }
-        }
-
-        void __PDF2Image(byte[] bytes, string fileName,
-            IHubContext<ImageHub> hubContext)
-        {
+            int i = 0;
             try
             {
-                using (var doc = new PdfDocument(bytes))
-                {
-                    string title = doc.GetMetaText(MetadataTags.Title);
-                    if (string.IsNullOrEmpty(title)) title = fileName;
+                _redisWrite.KeyDelete(REDIS_TEMP);
 
+                string fileName = Path.GetFileNameWithoutExtension(file);
+
+                using (var doc = new PdfDocument(file))
+                {
                     int total = doc.Pages.Count;
+
                     var r = new RawBook();
                     r.Page = total;
+                    r.FileName = fileName;
+                    r.Categories = Path.GetFileName(Path.GetDirectoryName(file));
 
-                    r.Title = title;
+                    r.Title = doc.GetMetaText(MetadataTags.Title);
                     r.Author = doc.GetMetaText(MetadataTags.Author);
                     r.Subject = doc.GetMetaText(MetadataTags.Subject);
                     r.Keywords = doc.GetMetaText(MetadataTags.Keywords);
@@ -126,14 +135,13 @@ namespace PDF2Image.Services
                     r.CreationDate = doc.GetMetaText(MetadataTags.CreationDate);
                     r.ModDate = doc.GetMetaText(MetadataTags.ModDate);
 
-                    hubContext.Clients.All.SendAsync("RAW_FILE", r);
+                    await _hubContext.Clients.All.SendAsync("RAW_FILE", r);
 
 
-                    int i = 0;
-                    byte[] buf = null;
-                    byte[][] arr = new byte[total][];
                     foreach (var page in doc.Pages)
                     {
+                        byte[] buf = null;
+                        ImageMessage img = null;
                         using (page)
                         {
                             var ps = page.Size;
@@ -151,10 +159,8 @@ namespace PDF2Image.Services
                                 //var gray = __grayImage(raw, OCR_TYPE.ACCORD);
                                 //buf = __ocrProcess(gray, OCR_TYPE.TESSERACT);
                                 buf = TTCore.WebPImage.Convert.StreamToWebP(new MemoryStream(raw), 60);
-                                //_cache[i] = buf;
 
-                                arr[i] = buf;
-                                hubContext.Clients.All.SendAsync("RAW_PROCESS", new ImageMessage()
+                                img = new ImageMessage()
                                 {
                                     id = i,
                                     w = w,
@@ -163,23 +169,38 @@ namespace PDF2Image.Services
                                     quality = 0,
                                     size = raw.Length,
                                     size_min = buf.Length
-                                }).GetAwaiter();
+                                };
                             }
                         }
+
+                        if (buf != null) _redisWrite.HashSet(REDIS_TEMP, i.ToString(), buf);
+                        if (img != null) await _hubContext.Clients.All.SendAsync("RAW_PROCESS", img);
+
                         i++;
                     }
-                    __zip(_rawPath, r, _rawPassword, arr);
+
+                    __zip(_rawPath, r, _rawPassword);
                 }
+                await _hubContext.Clients.All.SendAsync("RAW_DONE", new { File = file, Queue = QUEUE_COUNTER });
             }
             catch (Exception ex)
             {
+                string err =
+                    file + Environment.NewLine +
+                    i.ToString() + Environment.NewLine +
+                    ex.Message + Environment.NewLine + ex.StackTrace;
+                _redisWrite.HashSet(REDIS_ERROR, file, err);
+                await _hubContext.Clients.All.SendAsync("RAW_ERROR", err);
             }
+
+            _redisWrite.HashDelete(REDIS_PDF, file);
+            _redisWrite.KeyDelete(REDIS_TEMP);
         }
 
-        void __zip(string path, RawBook r, string pass, byte[][] arr)
+        void __zip(string path, RawBook r, string pass)
         {
             if (!Directory.Exists(path)) Directory.CreateDirectory(path);
-            string file = path + r.Title + ".raw";
+            string file = path + r.FileName + ".raw";
 
             if (File.Exists(file)) File.Delete(file);
 
@@ -192,9 +213,9 @@ namespace PDF2Image.Services
                 outStream.PutNextEntry(new ZipEntry("0.json"));
                 outStream.Write(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(r)));
 
-                for (int i = 0; i < arr.Length; i++)
+                for (int i = 0; i < r.Page; i++)
                 {
-                    byte[] bs = arr[i];
+                    byte[] bs = _redisRead.HashGet(REDIS_TEMP, i.ToString());
                     if (bs != null && bs.Length > 0)
                     {
                         outStream.PutNextEntry(new ZipEntry(i.ToString() + ".raw"));

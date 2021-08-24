@@ -3,6 +3,10 @@ using Microsoft.AspNetCore.SignalR;
 using PDF2Image.Hubs;
 using Microsoft.AspNetCore.Hosting;
 using PDF2Image.Services;
+using System.Threading.Tasks;
+using System.IO;
+using Microsoft.AspNetCore.Http;
+using System.Text;
 
 namespace PDF2Image.Controllers
 {
@@ -19,9 +23,20 @@ namespace PDF2Image.Controllers
             _ocr = ocr;
         }
 
-        [HttpGet("push-files")]
-        public string pushFiles(string path, string files)
+        [HttpPost("push-files")]
+        public async Task<string> pushFiles(string path)
         {
+            string files = "";
+            try
+            {
+                if (Request.Body != null && Request.Body.CanRead)
+                {
+                    Request.EnableBuffering();
+                    files = await new StreamReader(Request.Body, Encoding.Unicode).ReadToEndAsync();
+                    Request.Body.Position = 0;
+                }
+            }
+            catch { }
             if (!string.IsNullOrEmpty(path) && !string.IsNullOrEmpty(files)) 
                 _ocr.ZipRawPDF(path, files);
             return "OK";

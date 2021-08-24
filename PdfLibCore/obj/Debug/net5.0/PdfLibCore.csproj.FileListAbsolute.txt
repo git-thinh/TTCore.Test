@@ -2,6 +2,7 @@ C:\TTCore.Test\PdfLibCore\bin\Debug\net5.0\PdfLibCore.deps.json
 C:\TTCore.Test\PdfLibCore\bin\Debug\net5.0\PdfLibCore.dll
 C:\TTCore.Test\PdfLibCore\bin\Debug\net5.0\ref\PdfLibCore.dll
 C:\TTCore.Test\PdfLibCore\bin\Debug\net5.0\PdfLibCore.pdb
+C:\TTCore.Test\PdfLibCore\obj\Debug\net5.0\PdfLibCore.csproj.AssemblyReference.cache
 C:\TTCore.Test\PdfLibCore\obj\Debug\net5.0\PdfLibCore.GeneratedMSBuildEditorConfig.editorconfig
 C:\TTCore.Test\PdfLibCore\obj\Debug\net5.0\PdfLibCore.AssemblyInfoInputs.cache
 C:\TTCore.Test\PdfLibCore\obj\Debug\net5.0\PdfLibCore.AssemblyInfo.cs
@@ -9,4 +10,3 @@ C:\TTCore.Test\PdfLibCore\obj\Debug\net5.0\PdfLibCore.csproj.CoreCompileInputs.c
 C:\TTCore.Test\PdfLibCore\obj\Debug\net5.0\PdfLibCore.dll
 C:\TTCore.Test\PdfLibCore\obj\Debug\net5.0\ref\PdfLibCore.dll
 C:\TTCore.Test\PdfLibCore\obj\Debug\net5.0\PdfLibCore.pdb
-C:\TTCore.Test\PdfLibCore\obj\Debug\net5.0\PdfLibCore.csproj.AssemblyReference.cache

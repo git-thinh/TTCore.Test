@@ -63,7 +63,7 @@ namespace Redis
                 case REDIS_TYPE.WRITE:
                 case REDIS_TYPE.PUBSUB:
                     eps = _conMaster.GetEndPoints();
-                    if (eps.Length > 0) server = _conMaster.GetServer(eps[0]);
+                    if(eps.Length > 0) server = _conMaster.GetServer(eps[0]);
                     break;
                 case REDIS_TYPE.READ1:
                     eps = _conRead1.GetEndPoints();
@@ -78,7 +78,7 @@ namespace Redis
                     if (eps.Length > 0) server = _conRead3.GetServer(eps[0]);
                     break;
             }
-            return server;
+            return server;            
         }
 
         public ISubscriber GetSubscriber(REDIS_TYPE type)
@@ -100,7 +100,7 @@ namespace Redis
                     sub = _conRead3.GetSubscriber();
                     break;
             }
-            return sub;
+            return sub;            
         }
 
         public RedisService(
@@ -176,8 +176,7 @@ namespace Redis
                     //await _appHubContext.Clients.Group(HubsConstants.APP_HUB).ReceivePost(notification);
                 });
             }
-            catch (Exception ex)
-            {
+            catch(Exception ex) { 
             }
         }
     }
