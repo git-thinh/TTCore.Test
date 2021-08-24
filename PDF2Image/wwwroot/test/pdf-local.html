@@ -86,22 +86,19 @@
                 .configureLogging(signalR.LogLevel.Information)
                 .build();
 
-            connection.on("IMAGE_MESSAGE", function (m) {
+            connection.on("RAW_FILE", function (m) {
                 console.log(m);
-                var images = document.getElementById('images');
-                if (typeof m == 'string') {
-                    if (m == 'IMAGE_CLEAR') {
-                        __app.items = [];
-                        return;
-                    } else if (m.indexOf('FILE') == 0) {
-                        __app.file = m.substr(4);
-                        return;
-                    }
-                    return;
-                }
-
+                __app.items = [];
+                __app.file = m.Title;
+            });
+            connection.on("RAW_PROCESS", function (m) {
+                console.log(m);
                 __app.total = m.total;
                 __app.items.push(m);
+            });
+            connection.on("RAW_DONE", function (m) {
+                console.log(m);
+                alert('DONE: ' + m);
             });
 
             connection.start()

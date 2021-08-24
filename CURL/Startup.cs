@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.ClearScript.V8;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
 using System.Linq;
@@ -30,6 +31,13 @@ namespace CURL
             ");
         }
 
+        IConfiguration _configuration { get; }
+        IWebHostEnvironment _environment { get; }
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
+        {
+            _configuration = configuration;
+            _environment = env;
+        }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseRouting();

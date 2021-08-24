@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using System.IO;
 using System.Net;
 
@@ -8,6 +9,13 @@ namespace WebP
 {
     public class Startup
     {
+        IConfiguration _configuration { get; }
+        IWebHostEnvironment _environment { get; }
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
+        {
+            _configuration = configuration;
+            _environment = env;
+        }
         public byte[] __convertWebP(string type, string url, int quality = 75)
         {
             byte[] buf = null;
