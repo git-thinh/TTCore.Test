@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>PDF-Local</title>
+    <title>PDF Online</title>
     <script src="/dist/all.min.js"></script>
     <style type="text/css">
         ul, li {
@@ -30,7 +30,7 @@
                 display: inline-block;
                 position: relative;
                 min-height: 29px;
-                background-color: darkblue;
+                background-color: white;
             }
 
                 #images a img {
@@ -42,13 +42,33 @@
                     left: 5px;
                     top: 5px;
                     font-weight: bold;
-                    color: white;
+                    color: blue;
                     text-align: left;
                     width: 100%;
                 }
     </style>
 </head>
 <body>
+    <form enctype="multipart/form-data" method="post" action="/api/file/upload">
+        <fieldset>
+            <legend style="padding: 10px;">PDF Online</legend>
+            <div class="col-xs-12" style="padding: 10px;">
+                <input type="file" name="files" onchange="fileChange(this.files)" accept=".pdf"/>
+            </div>
+        </fieldset>
+    </form>
+    <!--<form enctype="multipart/form-data" method="post" action="/api/file/upload">
+        <fieldset>
+            <legend style="padding: 10px;">Upload Form Post</legend>
+            <div class="col-xs-12" style="padding: 10px;">
+                <input type="file" name="files" multiple>
+            </div>
+            <div style="padding: 10px;">
+                <input type="submit" value="Upload" id="ajaxUploadButton" class="btn">
+            </div>
+        </fieldset>
+    </form>-->
+    <hr />
     <div id="app">
         <ul>
             <li style="color:red;font-size:1.5em;">File: {{file}}</li>
@@ -57,13 +77,42 @@
         </ul>
         <div id="images">
             <a v-for="m in items" target="_blank" :href="'/local/image/'+m.id">
-                <!--<img :src="'/local/image/' + m.id + '?_=' + (new Date().getTime())"/>-->
+                <img :src="'/api/ocr/image/' + m.id + '?_=' + (new Date().getTime())"/>
                 <em>{{ '[' + m.id + '] ' + toKB(m.size) + ' : ' + toKB(m.size_min)}} KB - {{m.w + ' x ' + m.h}}</em>
             </a>
         </div>
     </div>
-    <script type="text/javascript"> 
+    <script type="text/javascript">
+        function fileChange(files) {
+            if (files == null || files.length == 0) return;
+
+            var msg = document.getElementById('images');
+            msg.innerHTML = '';
+
+            var url = '/api/ocr/pdf/upload';
+            console.log(url);
+
+            var formData = new FormData();
+            for (var i = 0; i < files.length; i++) {
+                formData.append(files[i].name, files[i]);
+            }
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (message) {
+                    console.log(message);
+                },
+                error: function () {
+                    alert("there was error uploading files!");
+                }
+            });
+        }
+
         $(document).ready(__init);
+
         function __init() {
             var __app = new Vue({
                 el: '#app',
@@ -94,7 +143,6 @@
                 console.log(m);
                 __app.items = [];
                 __app.file = m.FileName;
-                console.clear();
             });
             connection.on("RAW_PROCESS", function (m) {
                 console.log(m);
@@ -115,7 +163,6 @@
                 .then(function () { console.log('SignalR Started...'); })
                 .catch(function (err) { return console.error(err); });
         }
-
     </script>
 </body>
 </html>

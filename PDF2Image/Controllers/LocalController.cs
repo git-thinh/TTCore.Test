@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.IO;
 using Microsoft.AspNetCore.Http;
 using System.Text;
+using Redis;
+using StackExchange.Redis;
 
 namespace PDF2Image.Controllers
 {
@@ -16,11 +18,21 @@ namespace PDF2Image.Controllers
         readonly IHubContext<ImageHub> _hubContext;
         readonly IWebHostEnvironment _environment;
         readonly OcrService _ocr;
-        public LocalController(IHubContext<ImageHub> hubContext, IWebHostEnvironment env, OcrService ocr)
+
+        readonly IDatabase _redisRead;
+        const string REDIS_RAW = "RAW";
+
+        public LocalController(
+            IHubContext<ImageHub> hubContext, 
+            IWebHostEnvironment env, 
+            OcrService ocr,
+            RedisService redis)
         {
             _hubContext = hubContext;
             _environment = env;
+
             _ocr = ocr;
+            _redisRead = redis.GetDB(REDIS_TYPE.READ1);
         }
 
         [HttpPost("push-files")]
@@ -43,11 +55,11 @@ namespace PDF2Image.Controllers
         }
 
         [HttpGet("image/{id}")]
-        public IActionResult image(int id)
+        public IActionResult image(string id)
         {
             byte[] buf = new byte[] { };
-            //if (id < _cache.Length)
-            //    buf = _cache[id];
+            if (_redisRead.HashExists(REDIS_RAW, id))
+                buf = _redisRead.HashGet(REDIS_RAW, id);
             return File(buf, "image/webp");
         }
     }

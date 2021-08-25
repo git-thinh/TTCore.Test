@@ -223,13 +223,17 @@ namespace PdfLibCore
 		{
             [SuppressUnmanagedCodeSecurity]
 			[DllImport("pdfium", EntryPoint = "FPDF_LoadDocument", SetLastError = true)]
-			internal static extern FPDF_DOCUMENT FPDF_LoadDocument([MarshalAs(UnmanagedType.LPStr)] string file_path, [MarshalAs(UnmanagedType.LPStr)] string password);
+			internal static extern FPDF_DOCUMENT FPDF_LoadDocument(
+				[MarshalAs(UnmanagedType.LPStr)] string file_path, 
+				[MarshalAs(UnmanagedType.LPStr)] string password);
 		}
 
 		/// <include file='PDFium.xml' path='Documentation/FPDF_LoadDocument/*'/>
 		/// <seealso cref='PdfDocument.PdfDocument(string, string)'/>
         [HandleProcessCorruptedStateExceptions]
-		public static FPDF_DOCUMENT FPDF_LoadDocument([MarshalAs(UnmanagedType.LPStr)] string file_path, [MarshalAs(UnmanagedType.LPStr)] string password)
+		public static FPDF_DOCUMENT FPDF_LoadDocument(
+			[MarshalAs(UnmanagedType.LPStr)] string file_path, 
+			[MarshalAs(UnmanagedType.LPStr)] string password)
 		{
 
 			lock(_lock) 
@@ -519,19 +523,19 @@ namespace PdfLibCore
         [HandleProcessCorruptedStateExceptions]
 		public static FPDF_PAGE FPDF_LoadPage(FPDF_DOCUMENT document, int page_index)
 		{
-
 			lock(_lock) 
             { 
                 try
                 {
-                    return PlatformInvoke.FPDF_LoadPage(document, page_index); 
-                }
-                catch(AccessViolationException innerException)
-                {
-                    throw new PdfiumException(innerException);
+                    return PlatformInvoke.FPDF_LoadPage(document, page_index);
+				}
+				//catch (AccessViolationException innerException)
+				catch (Exception innerException)
+				{
+                    //throw new PdfiumException(innerException);
                 }
             }
-
+			return new FPDF_PAGE();
 		}
 
 		#endregion

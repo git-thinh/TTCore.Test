@@ -71,7 +71,7 @@ namespace DinkToPdf
             _logger.LogDebug($"{ServiceName} is stopping.");
         }
 
-        static void Main()
+        static void testMain()
         {
             var converter = new BasicConverter(new PdfTools());
 
