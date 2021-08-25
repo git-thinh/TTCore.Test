@@ -180,6 +180,7 @@ namespace PDF2Image.Services
                     }
                 }
 
+                var tran = new NaiveTransparencyRemover(255, 255, 255);
                 for (i = 0; i < total; i++)
                 {
                     try
@@ -196,10 +197,11 @@ namespace PDF2Image.Services
                                     {
                                         int w = page.GetPageWidth();
                                         int h = page.GetPageHeight();
-                                        
+
                                         //var temp = page.GetImage();
                                         //var temp = page.GetImage(new NaiveTransparencyRemover(120, 120, 0));
-                                        var temp = page.GetImage(RenderFlags.RenderAnnotations | RenderFlags.Grayscale);
+                                        var temp = page.GetImage(tran);
+                                        //var temp = page.GetImage(RenderFlags.RenderAnnotations | RenderFlags.Grayscale);
 
                                         using var bitmap = new Bitmap(w, h, PixelFormat.Format32bppArgb);
                                         AddBytes(bitmap, temp);
