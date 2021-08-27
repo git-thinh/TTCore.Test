@@ -2,8 +2,8 @@
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Download;
 using Google.Apis.Drive.v3;
+using Google.Apis.Drive.v3.Data;
 using Google.Apis.Services;
-using Google.Apis.Upload;
 using Google.Apis.Util.Store;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -75,6 +75,9 @@ namespace Driver.Services
                 //r.Fields = "id";
                 r.Fields = "*";
                 var file = r.Execute();
+
+                _gooPermission_Create(file.Id);
+
                 return _toModelItem(file);
             }
             catch (Exception ex)
@@ -83,36 +86,25 @@ namespace Driver.Services
             return null;
         }
 
-        public oItem _gooFolder_uploadFile(oItem folder, IFormFile file)
+        public oItem _gooFile_uploadToFolder(IFormFile file, string folderId = "")
         {
             var f = new Google.Apis.Drive.v3.Data.File();
             f.Name = file.FileName;
             f.MimeType = file.ContentType;
-            f.Parents = new List<string>() { folder.id };
+            if (!string.IsNullOrEmpty(folderId))
+                f.Parents = new List<string>() { folderId };
 
             var r = _gooService.Files.Create(f, file.OpenReadStream(), f.MimeType);
             //r.Fields = "id";
             r.Fields = "*";
             r.Upload();
+
             var v = r.ResponseBody;
+            _gooPermission_Create(v.Id);
             return _toModelItem(v);
         }
 
-        public oItem _gooRoot_uploadFile(IFormFile file)
-        {
-            var f = new Google.Apis.Drive.v3.Data.File();
-            f.Name = file.FileName;
-            f.MimeType = file.ContentType;
-
-            var r = _gooService.Files.Create(f, file.OpenReadStream(), f.MimeType);
-            //r.Fields = "id";
-            r.Fields = "*";
-            r.Upload();
-            var v = r.ResponseBody;
-            return _toModelItem(v);
-        }
-
-        public oItem[] _gooFile_getAll()
+        public oItem[] _gooGetAll()
         {
             var ls = new List<oItem>();
             var r = _gooService.Files.List();
@@ -122,25 +114,7 @@ namespace Driver.Services
             var files = r.Execute().Files;
 
             // For getting only folders    
-            files = files.Where(x => x.MimeType != "application/vnd.google-apps.folder").ToList();
-
-            if (files != null && files.Count > 0)
-                foreach (var file in files)
-                    ls.Add(_toModelItem(file));
-            return ls.ToArray();
-        }
-
-        public oItem[] _gooFolder_getAll()
-        {
-            var ls = new List<oItem>();
-            var r = _gooService.Files.List();
-            //r.PageSize = 2;
-            //r.Fields = "nextPageToken, files(id, name)";
-            r.Fields = "nextPageToken, files(*)";
-            var files = r.Execute().Files;
-
-            // For getting only folders    
-            files = files.Where(x => x.MimeType == "application/vnd.google-apps.folder").ToList();
+            //files = files.Where(x => x.MimeType == "application/vnd.google-apps.folder").ToList();
 
             if (files != null && files.Count > 0)
                 foreach (var file in files)
@@ -159,10 +133,11 @@ namespace Driver.Services
             var r = _gooService.Files.Create(FileMetaData);
             r.Fields = "*";
             var v = r.Execute();
+            _gooPermission_Create(v.Id);
             return _toModelItem(v);
         }
 
-        public bool _gooDeleteFile(string fileId)
+        public bool _gooFile_Delete(string fileId)
         {
             try
             {
@@ -175,7 +150,7 @@ namespace Driver.Services
             return false;
         }
 
-        public bool _gooFolder_exist(string folderOrFileName)
+        public bool _gooFolder_Exist(string folderOrFileName)
         {
             var r = _gooService.Files.List();
             r.Fields = "nextPageToken, files(*)";
@@ -186,7 +161,7 @@ namespace Driver.Services
             return false;
         }
 
-        public byte[] _gooFile_downloadFile(string fileId)
+        public byte[] _gooFile_Download(string fileId)
         {
             var r = _gooService.Files.Get(fileId);
             var v = r.Execute();
@@ -215,11 +190,11 @@ namespace Driver.Services
             return buf;
         }
 
-        public bool _gooFile_moveFiles(String fileId, String folderId)
+        public bool _gooFile_Move(string fileId, string folderId)
         {
             var getRequest = _gooService.Files.Get(fileId);
             getRequest.Fields = "parents";
-            Google.Apis.Drive.v3.Data.File file = getRequest.Execute();
+            var file = getRequest.Execute();
             string previousParents = String.Join(",", file.Parents);
 
             // Move the file to the new folder    
@@ -234,7 +209,7 @@ namespace Driver.Services
             return false;
         }
 
-        public bool _gooFile_CopyFiles(String fileId, String folderId)
+        public bool _gooFile_Copy(string fileId, string folderId)
         {
             // Retrieve the existing parents to remove    
             var r = _gooService.Files.Get(fileId);
@@ -248,11 +223,15 @@ namespace Driver.Services
             //updateRequest.RemoveParents = previousParents;    
             file = updateRequest.Execute();
             if (file != null)
+            {
+                _gooPermission_Create(file.Id);
                 return true;
+            }
+
             return false;
         }
 
-        public oItem _gooFile_renameFile(String fileId, String newTitle)
+        public oItem _gooFile_Rename(string fileId, string newTitle)
         {
             try
             {
@@ -270,30 +249,54 @@ namespace Driver.Services
             return null;
         }
 
-        public oItem _gooFile_uploadFileProgress(IFormFile file, string folderId, string description = "")
+        public oItem _gooFile_uploadProgress(IFormFile file, string folderId = "", string description = "")
         {
             var body = new Google.Apis.Drive.v3.Data.File();
             body.Name = file.FileName;
             body.Description = description;
             body.MimeType = file.ContentType;
-            // body.Parents = new List<string> { folderId };
+            if (!string.IsNullOrEmpty(folderId))
+                body.Parents = new List<string> { folderId };
 
             try
             {
                 var r = _gooService.Files.Create(body, file.OpenReadStream(), file.ContentType);
                 r.SupportsTeamDrives = true;
-                r.ProgressChanged += (progress) => {
+                r.ProgressChanged += (progress) =>
+                {
                     // progress.Status + " " + progress.BytesSent;
                 };
-                r.ResponseReceived += (_file)=> {
+                r.ResponseReceived += (_file) =>
+                {
                     // if (_file != null) "File was uploaded sucessfully--" + _file.Id;
                 };
                 r.Upload();
-                var v= r.ResponseBody;
+
+                var v = r.ResponseBody;
+                _gooPermission_Create(v.Id);
                 return _toModelItem(v);
             }
             catch (Exception e)
             {
+            }
+            return null;
+        }
+
+        Permission _gooPermission_Create(string itemId)
+        {
+            var p = new Permission();
+            p.AllowFileDiscovery = false;
+            p.Type = "anyone"; // "user", "group", "domain" or "default" "anyone"
+            p.Role = "reader"; // "owner", "writer" or "reader"
+            //p.EmailAddress = "abc@gmail.com";
+
+            try
+            {
+                return _gooService.Permissions.Create(p, itemId).Execute();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An error occurred: " + e.Message);
             }
             return null;
         }
