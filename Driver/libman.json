@@ -1,0 +1,48 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "zepto@1.0",
+      "files": [ "zepto.min.js" ],
+      "destination": "wwwroot/lib/js/"
+    },
+    {
+      "library": "underscore.js@1.13.1",
+      "files": [ "underscore-min.js" ],
+      "destination": "wwwroot/lib/js/"
+    },
+    {
+      "library": "vue@2.6.14",
+      "files": [ "vue.min.js" ],
+      "destination": "wwwroot/lib/js/"
+    },
+    {
+      "library": "twitter-bootstrap@5.1.0",
+      "files": [ "js/bootstrap.min.js", "js/bootstrap.bundle.min.js", "css/bootstrap.min.css" ],
+      "destination": "wwwroot/lib/"
+    },
+    {
+      "library": "bootstrap-icons@1.5.0",
+      "files": [ "font/bootstrap-icons.min.css", "font/fonts/bootstrap-icons.woff" ],
+      "destination": "wwwroot/lib/"
+    },
+
+    {
+      "library": "microsoft-signalr@5.0.9",
+      "files": [ "signalr.min.js" ],
+      "destination": "wwwroot/lib/js/"
+    },
+    {
+      "library": "msgpack5@5.3.2",
+      "files": [ "msgpack5.min.js" ],
+      "destination": "wwwroot/lib/js/"
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "@microsoft/signalr-protocol-msgpack@5.0.9",
+      "files": [ "dist/browser/signalr-protocol-msgpack.min.js" ],
+      "destination": "wwwroot/lib/js/"
+    }
+  ]
+}

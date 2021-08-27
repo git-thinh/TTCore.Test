@@ -1,9 +1,11 @@
 ﻿using Driver.Models;
 using Driver.Services;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -14,15 +16,17 @@ namespace Driver.Controllers
     {
         readonly ILogger _logger;
         readonly IConfiguration _configuration;
+        readonly IWebHostEnvironment _environment;
         readonly DriverService _driver;
         public DriverController(ILoggerFactory loggerFactory,
             IConfiguration configuration,
+            IWebHostEnvironment environment,
             DriverService driver)
         {
             _logger = loggerFactory.CreateLogger(GetType());
             _configuration = configuration;
+            _environment = environment;
             _driver = driver;
-
             refreshAll();
         }
 

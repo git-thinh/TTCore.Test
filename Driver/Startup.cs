@@ -36,6 +36,25 @@ namespace Driver
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            if (!Directory.Exists(env.WebRootPath)) Directory.CreateDirectory(env.WebRootPath);
+            var dfo = new DefaultFilesOptions();
+            dfo.DefaultFileNames.Clear();
+            dfo.DefaultFileNames.Add("index.html");
+            app.UseDefaultFiles(dfo);
+            app.UseStaticFiles();
+            foreach (var dir in Directory.GetDirectories(env.WebRootPath))
+            {
+                string folder = Path.GetFileName(dir);
+                string dirTest = Path.Combine(env.WebRootPath, folder);
+                app.UseDirectoryBrowser(new DirectoryBrowserOptions
+                {
+                    FileProvider = new PhysicalFileProvider(dirTest),
+                    RequestPath = "/" + folder
+                });
+            }
+
+            //--------------------------------------------------------
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -56,12 +75,12 @@ namespace Driver
                 //endpoints.MapHub<ImageHub>("/hubs/image");
 
                 endpoints.MapControllers();
-                endpoints.MapGet("/", async context =>
-                {
-                    //context.Response.Redirect("/test");
-                    context.Response.Redirect("/swagger");
-                    await System.Threading.Tasks.Task.CompletedTask;
-                });
+                //endpoints.MapGet("/", async context =>
+                //{
+                //    //context.Response.Redirect("/test");
+                //    context.Response.Redirect("/swagger");
+                //    await System.Threading.Tasks.Task.CompletedTask;
+                //});
             });
         }
     }

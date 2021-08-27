@@ -1,0 +1,28 @@
+[
+  {
+    "outputFileName": "wwwroot/js/all.min.js",
+    "inputFiles": [
+      "wwwroot/lib/js/signalr.min.js",
+      "wwwroot/lib/js/msgpack5.min.js",
+      "wwwroot/lib/js/dist/browser/signalr-protocol-msgpack.min.js",
+      "wwwroot/lib/js/vue.min.js",
+      "wwwroot/lib/js/underscore-min.js",
+      "wwwroot/lib/js/zepto.min.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/css/all.min.css",
+    "inputFiles": [
+      "wwwroot/lib/css/bootstrap.min.css",
+      "wwwroot/lib/font/bootstrap-icons.min.css"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  }
+]
