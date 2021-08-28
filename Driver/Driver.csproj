@@ -5,8 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="libman.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <_ContentIncludedByDefault Remove="appsettings.Production.json" />
     <_ContentIncludedByDefault Remove="appsettings.Production.Redis.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="libman.txt" />
   </ItemGroup>
 
   <ItemGroup>

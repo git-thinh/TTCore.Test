@@ -35,20 +35,20 @@ namespace Driver.Controllers
             }
         }
         static oItem _rootFolder = null;
-        static oItem[] _folders = new oItem[] { };
-        static oItem[] _files = new oItem[] { };
+        static oItem[] _items = new oItem[] { };
 
         [HttpGet("refresh")]
         public bool refreshAll()
         {
-            var items = _driver._gooGetAll();
-            _files = items.Where(x => x.mime_type != "application/vnd.google-apps.folder").ToArray();
-            _folders = items.Where(x => x.mime_type == "application/vnd.google-apps.folder").ToArray();
-            foreach (var it in _folders)
+            _items = _driver._gooGetAll();
+            foreach (var it in _items)
             {
-                it.is_dir = true;
+                if (it.mime_type == "application/vnd.google-apps.folder") it.is_dir = true;
                 if (it.parents != null && it.parents.IndexOf(_rootFolder.id) != -1)
+                {
                     it.is_root = true;
+                    it.back_id = _rootFolder.id;
+                }
             }
             return true;
         }
@@ -60,11 +60,8 @@ namespace Driver.Controllers
             return item;
         }
 
-        [HttpGet("files")]
-        public oItem[] fileAll() => _files;
-
-        [HttpGet("folders")]
-        public oItem[] folderAll() => _folders;
+        [HttpGet("all")]
+        public oItem[] fileAll() => _items;
 
         [HttpGet("file/text/{fileId}")]
         public string fileGetText(string fileId)
@@ -84,12 +81,16 @@ namespace Driver.Controllers
             return ok;
         }
 
-        [HttpPost("folder/create/{folderName}")]
+        [HttpGet("folder/create/{folderName}")]
         public oItem folderCreate(string folderName)
         {
-            var v = _driver._gooFolder_createNew(folderName);
-            if (v != null) refreshAll();
-            return v;
+            if (!string.IsNullOrEmpty(folderName))
+            {
+                var v = _driver._gooFolder_createNew(folderName);
+                if (v != null) refreshAll();
+                return v;
+            }
+            return null;
         }
 
         [HttpPost("file/upload/{folderName}")]
@@ -103,7 +104,7 @@ namespace Driver.Controllers
                 string folderId = string.Empty;
                 if (!string.IsNullOrEmpty(folderName))
                 {
-                    var dir = _folders.Where(x => x.name.ToLower() == folderName.ToLower()).Take(1).SingleOrDefault();
+                    var dir = _items.Where(x => x.is_dir && x.name.ToLower() == folderName.ToLower()).Take(1).SingleOrDefault();
                     if (dir != null)
                         folderId = dir.id;
                 }

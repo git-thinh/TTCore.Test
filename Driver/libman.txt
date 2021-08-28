@@ -8,9 +8,8 @@
       "destination": "wwwroot/lib/js/"
     },
     {
-      "provider": "jsdelivr",
-      "library": "lodash@4.17.21",
-      "files": [ "lodash.min.js" ],
+      "library": "underscore.js@1.13.1",
+      "files": [ "underscore-min.js" ],
       "destination": "wwwroot/lib/js/"
     },
     {

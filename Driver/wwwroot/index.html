@@ -10,27 +10,27 @@
 </head>
 <body>
     <div id="app" class="w-100 vh-100 position-relative d-inline-block">
-        <div id="loading" class="vh-100 w-100">
-            <div class="d-flex justify-content-center">
+        <div id="loading" class="vh-100 w-100 position-fixed start-0 top-0 d-flex align-items-center justify-content-center">
+            <div class="position-absolute w-100 vh-100 bg-dark opacity-75 start-0 top-0" style="z-index:-111111;"></div>
+            <div class="d-inline-block">
                 <div class="spinner-border text-warning" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
         </div>
         <div id="header" class="d-flex justify-content-between flex-shrink-0 p-3 bg-dark w-100 border-bottom position-fixed top-0 hide">
-            <i class="bi bi-search fs-1 pe-2 text-muted" onclick="$('#search').toggleClass('hide')"></i>
+            <i class="bi-arrow-left-short fs-1 pe-2 text-muted" @click="prev_Click()"></i>
             <span class="fs-1 overflow-hidden d-inline text-nowrap">
-                <i class="bi-arrow-left-short fs-3 me-1"></i>
-                {{folderCurent.name}}
+                {{currentFolder.name}}
             </span>
-            <i class="bi bi-list fs-1 ps-2 text-muted" onclick="$('#menu').toggleClass('hide')"></i>
+            <i id="menu_toggle" class="bi bi-list fs-1 ps-2 text-muted" onclick="$('#menu').toggleClass('hide')"></i>
         </div>
         <div id="body" class="hide w-100">
             <ul class="list-unstyled p-0 m-0 d-inline-block w-100">
-                <li v-for="item in folders" class="list-group-item list-group-item-action py-1 lh-tight">
+                <li v-for="item in items" class="list-group-item list-group-item-action py-1 lh-tight">
                     <div class="d-flex w-100 align-items-center justify-content-between">
                         <strong class="mb-1" @click="item_Click(item)">
-                            <i class="bi-folder2-open fs-3 pe-1 text-warning"></i>
+                            <i :class="['fs-3 pe-1 text-warning', item.is_dir ? 'bi-folder2-open' : 'bi-file-earmark-text']"></i>
                             {{item.name}}
                         </strong>
                         <small><i class="bi bi-check2 fs-2 text-muted"></i></small>
@@ -40,8 +40,15 @@
         </div>
 
         <ul id="menu" class="dropdown-menu dropdown-menu-dark mx-0 border-0 shadow position-fixed hide">
-            <li>
+            <li onclick="$('#search').toggleClass('hide')">
                 <button class="dropdown-item d-flex gap-2 align-items-center">
+                    <i class="bi-search pe-3 text-warning"></i>
+                    Search
+                </button>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+                <button class="dropdown-item d-flex gap-2 align-items-center" @click="item_createNew()">
                     <i class="bi-folder-plus pe-3 text-warning"></i>
                     Create New Folder
                 </button>
@@ -204,11 +211,16 @@
                 <div class="modal-content rounded-4 shadow bg-light text-dark border">
                     <div class="modal-body p-4 pt-5 text-center position-relative">
                         <button class="btn-close position-absolute end-0 top-0 mt-2 me-2" onclick="$('#alert').toggleClass('hide')"></button>
-                        <h5 class="mb-0">Enable this setting?</h5>
-                        <p class="mb-0">You can always change your mind in your account settings.</p>
+                        <h5 v-show="alert.title != null && alert.title.length > 0" class="mb-0">{{alert.title}}</h5>
+                        <p v-show="alert.message != null && alert.message.length > 0" class="mb-0">{{alert.message}}</p>
+                        <div v-show="alert.input != null && alert.input.length > 0" class="form-floating mb-3 mt-1">
+                            <input type="text" :class="['form-control rounded-4 text-dark', alert.error != null && alert.error.length > 0 ? 'is-invalid' : '']" v-model="alert.value" placeholder="Enter value...">
+                            <label class="text-dark">{{alert.input}}</label>
+                            <div v-show="alert.error != null && alert.error.length > 0" class="invalid-feedback">{{alert.error}}</div>
+                        </div>
                     </div>
                     <div class="modal-footer flex-nowrap p-0">
-                        <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end"><strong>Yes</strong></button>
+                        <button type="button" @click="alert_Ok()" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end"><strong>Yes</strong></button>
                         <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0" onclick="$('#alert').toggleClass('hide')">No</button>
                     </div>
                 </div>
