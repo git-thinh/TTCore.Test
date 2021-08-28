@@ -18,23 +18,25 @@
             </div>
         </div>
         <div id="header" class="d-flex justify-content-between flex-shrink-0 p-3 bg-dark w-100 border-bottom position-fixed top-0 hide">
-            <i class="bi bi-search fs-1 pe-2 text-muted"></i>
-            <span class="fs-1">List group</span>
+            <i class="bi bi-search fs-1 pe-2 text-muted" onclick="$('#search').toggleClass('hide')"></i>
+            <span class="fs-1 overflow-hidden d-inline text-nowrap">
+                <i class="bi-arrow-left-short fs-3 me-1"></i>
+                {{folderCurent.name}}
+            </span>
             <i class="bi bi-list fs-1 ps-2 text-muted" onclick="$('#menu').toggleClass('hide')"></i>
         </div>
-        <div id="body" class="d-flex flex-column align-items-stretch flex-shrink-0 hide">
-            <div class="list-group list-group-flush border-bottom scrollarea">
-                <div v-for="item in folders" class="list-group-item list-group-item-action py-3 lh-tight">
+        <div id="body" class="hide w-100">
+            <ul class="list-unstyled p-0 m-0 d-inline-block w-100">
+                <li v-for="item in folders" class="list-group-item list-group-item-action py-1 lh-tight">
                     <div class="d-flex w-100 align-items-center justify-content-between">
-                        <strong class="mb-1">
+                        <strong class="mb-1" @click="item_Click(item)">
                             <i class="bi-folder2-open fs-3 pe-1 text-warning"></i>
                             {{item.name}}
                         </strong>
                         <small><i class="bi bi-check2 fs-2 text-muted"></i></small>
                     </div>
-                    <div class="col-10 mb-1 small">Some placeholder content in a paragraph below the heading and date.</div>
-                </div>
-            </div>
+                </li>
+            </ul>
         </div>
 
         <ul id="menu" class="dropdown-menu dropdown-menu-dark mx-0 border-0 shadow position-fixed hide">
@@ -102,14 +104,14 @@
             </li>
         </ul>
 
-        <div id="search" class="d-flex flex-column flex-shrink-0 p-0 bg-dark text-light position-fixed top-0 start-0">
-            <div class="d-flex align-items-center p-3 border-bottom">
+        <div id="search" class="d-flex flex-column flex-shrink-0 p-0 bg-dark text-light position-fixed top-0 start-0 hide">
+            <div class="d-flex align-items-center p-3">
                 <div class="input-group">
                     <i class="input-group-text bi-search fs-4 bg-transparent text-light border-end-0"></i>
                     <input type="text" class="form-control border-start-0 ps-0 bg-transparent text-light" placeholder="search">
                 </div>
             </div>
-            <ul class="list-unstyled flex-fill d-flex flex-column">
+            <ul class="list-unstyled flex-fill d-flex flex-column overflow-auto">
                 <li class="mb-1 pt-2">
                     <div class="pb-1 ps-2 text-muted">
                         <i class="bi-folder2-open fs-5 pe-2"></i>
@@ -140,7 +142,7 @@
                         <span>Tags</span>
                     </div>
                 </li>
-                <li class="mb-1 flex-fill" style="overflow:auto;">
+                <li class="mb-1 flex-fill">
                     <ul id="doctype" class="ui-filter ms-auto">
                         <li v-for="tag in tags">
                             <i class="bi-check"></i>
@@ -149,6 +151,10 @@
                     </ul>
                 </li>
             </ul>
+            <div class="text-end p-1 pe-3 pb-2">
+                <button class="btn btn-secondary p-1 px-3 me-2" onclick="$('#search').toggleClass('hide')">Close</button>
+                <button class="btn btn-primary p-1 px-3" @click="search()">Search</button>
+            </div>
         </div>
 
         <div id="login" class="modal d-block bg-secondary hide">
@@ -192,6 +198,23 @@
                 </div>
             </div>
         </div>
+
+        <div class="modal modal-alert d-block bg-transparent hide" id="alert">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content rounded-4 shadow bg-light text-dark border">
+                    <div class="modal-body p-4 pt-5 text-center position-relative">
+                        <button class="btn-close position-absolute end-0 top-0 mt-2 me-2" onclick="$('#alert').toggleClass('hide')"></button>
+                        <h5 class="mb-0">Enable this setting?</h5>
+                        <p class="mb-0">You can always change your mind in your account settings.</p>
+                    </div>
+                    <div class="modal-footer flex-nowrap p-0">
+                        <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end"><strong>Yes</strong></button>
+                        <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0" onclick="$('#alert').toggleClass('hide')">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <script src="js/app.js"></script>
 </body>

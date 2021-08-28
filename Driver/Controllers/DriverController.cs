@@ -27,9 +27,14 @@ namespace Driver.Controllers
             _configuration = configuration;
             _environment = environment;
             _driver = driver;
-            refreshAll();
-        }
 
+            if (_rootFolder == null)
+            {
+                _rootFolder = _driver._gooGetRoot();
+                refreshAll();
+            }
+        }
+        static oItem _rootFolder = null;
         static oItem[] _folders = new oItem[] { };
         static oItem[] _files = new oItem[] { };
 
@@ -39,7 +44,20 @@ namespace Driver.Controllers
             var items = _driver._gooGetAll();
             _files = items.Where(x => x.mime_type != "application/vnd.google-apps.folder").ToArray();
             _folders = items.Where(x => x.mime_type == "application/vnd.google-apps.folder").ToArray();
+            foreach (var it in _folders)
+            {
+                it.is_dir = true;
+                if (it.parents != null && it.parents.IndexOf(_rootFolder.id) != -1)
+                    it.is_root = true;
+            }
             return true;
+        }
+
+        [HttpGet("root")]
+        public oItem getRoot()
+        {
+            var item = _driver._gooGetRoot();
+            return item;
         }
 
         [HttpGet("files")]

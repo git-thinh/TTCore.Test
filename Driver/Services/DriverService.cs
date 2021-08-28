@@ -104,6 +104,12 @@ namespace Driver.Services
             return _toModelItem(v);
         }
 
+        public oItem _gooGetRoot()
+        {
+           var v = _gooService.Files.Get("root").Execute();
+            return _toModelItem(v);
+        }
+
         public oItem[] _gooGetAll()
         {
             var ls = new List<oItem>();

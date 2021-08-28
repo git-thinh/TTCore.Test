@@ -8,6 +8,8 @@ namespace Driver.Models
         public string name { set; get; }
         public long size { set; get; }
         public long created_time { set; get; }
+        public bool is_root { set; get; }
+        public bool is_dir { set; get; }
         public string mime_type { set; get; }
         public IList<string> parents { set; get; }
         public bool shared { get; set; }

@@ -6,11 +6,13 @@ function __init() {
         el: '#app',
         data: function () {
             return {
+                folderCurent: {},
                 groups: [],
                 tags: [],
                 types: [],
                 files: [],
-                folders: []
+                folders: [],
+                items :[]
             };
         },
         created: function () {
@@ -25,6 +27,7 @@ function __init() {
                 console.log(folders, files);
                 _self.folders = folders;
                 _self.files = files;
+                _self.items = _.filter(folders, o => o.is_root);
                 _self.app_Ready();
             } else {
                 var time = new Date().getTime();
@@ -36,6 +39,7 @@ function __init() {
                     console.log(a);
                     _self.folders = a[0];
                     _self.files = a[1];
+                    _self.items = _.filter(a[0], o => o.is_root);
                     localStorage['folders'] = JSON.stringify(a[0]);
                     localStorage['files'] = JSON.stringify(a[1]);
                     _self.app_Ready();
@@ -72,6 +76,21 @@ function __init() {
                 $('#loading').addClass('hide');
                 $('#header').removeClass('hide');
                 $('#body').removeClass('hide');
+            },
+            search: function () {
+                var _self = this;
+                $('#search').toggleClass('hide');
+            },
+            item_Click: function (item) {
+                var _self = this;
+                var isFolder = item.mime_type == 'application/vnd.google-apps.folder';
+                console.log('CLICK = ', isFolder, item);
+                if (isFolder) {
+                    _self.folderCurent = item;
+
+                } else {
+                    ;
+                }
             }
         }
     });
