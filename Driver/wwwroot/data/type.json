@@ -1,0 +1,30 @@
+[
+  {
+    "type": "txt",
+    "name": "Text"
+  },
+  {
+    "type": "pdf",
+    "name": "Pdf"
+  },
+  {
+    "type": "html",
+    "name": "Html"
+  },
+  {
+    "type": "lnk",
+    "name": "Link"
+  },
+  {
+    "type": "raw",
+    "name": "Book"
+  },
+  {
+    "type": "mp3",
+    "name": "Media"
+  },
+  {
+    "type": "yt",
+    "name": "Youtube"
+  }
+]

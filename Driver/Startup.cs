@@ -45,12 +45,15 @@ namespace Driver
             foreach (var dir in Directory.GetDirectories(env.WebRootPath))
             {
                 string folder = Path.GetFileName(dir);
-                string dirTest = Path.Combine(env.WebRootPath, folder);
-                app.UseDirectoryBrowser(new DirectoryBrowserOptions
+                if (folder != "token" && folder != "data")
                 {
-                    FileProvider = new PhysicalFileProvider(dirTest),
-                    RequestPath = "/" + folder
-                });
+                    string dirTest = Path.Combine(env.WebRootPath, folder);
+                    app.UseDirectoryBrowser(new DirectoryBrowserOptions
+                    {
+                        FileProvider = new PhysicalFileProvider(dirTest),
+                        RequestPath = "/" + folder
+                    });
+                }
             }
 
             //--------------------------------------------------------

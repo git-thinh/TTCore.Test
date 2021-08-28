@@ -1,2 +1,70 @@
 ﻿body {
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
 }
+
+.hide {
+    display: none !important;
+}
+
+#app {
+    padding-top: 75px;
+}
+
+#header {
+    z-index: 5;
+}
+
+#body {
+    z-index: 0;
+    cursor: pointer;
+}
+
+#menu {
+    width: 220px;
+    z-index: 10;
+    top: 60px;
+    right: 9px;
+    outline: 1px solid #ccc;
+    display: inline-block;
+}
+
+#search {
+    z-index: 10;
+    display: inline-block;
+    height: 100%;
+}
+
+#login {
+    width: 100%;
+    z-index: 10;
+    display: inline-block;
+}
+
+ul.ui-filter {
+    padding: 0 3px 0 17px;
+}
+
+    ul.ui-filter li {
+        display: inline-block;
+        border: 1px solid #333;
+        margin: 3px 1px;
+        padding: 7px 7px 8px 4px;
+        border-radius: 7px;
+    }
+
+        ul.ui-filter li i {
+            color: #555;
+        }
+
+.list-group-item {
+    background-color: #000 !important;
+    color: #fff;
+    border-color: #ccc;
+}
+
+    .list-group-item.active {
+        background-color: #343a40 !important;
+        border-color: #ccc;
+    }
