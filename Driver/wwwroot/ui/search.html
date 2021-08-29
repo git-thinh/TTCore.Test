@@ -1,0 +1,53 @@
+﻿
+<div id="search" class="d-flex flex-column flex-shrink-0 p-0 bg-dark text-light position-fixed top-0 start-0 hide">
+    <div class="d-flex align-items-center p-3">
+        <div class="input-group">
+            <i class="input-group-text bi-search fs-4 bg-transparent text-light border-end-0"></i>
+            <input type="text" class="form-control border-start-0 ps-0 bg-transparent text-light" placeholder="search">
+        </div>
+    </div>
+    <ul class="list-unstyled flex-fill d-flex flex-column overflow-auto">
+        <li class="mb-1 pt-2">
+            <div class="pb-1 ps-2 text-muted">
+                <i class="bi-folder2-open fs-5 pe-2"></i>
+                <span>Group</span>
+            </div>
+            <ul class="ui-filter">
+                <li v-for="group in groups">
+                    <i class="bi-check"></i>
+                    <span>{{group}}</span>
+                </li>
+            </ul>
+        </li>
+        <li class="mb-1 pt-1">
+            <div class="pb-1 ps-2 text-muted">
+                <i class="bi-check-all fs-5 pe-2"></i>
+                <span>Type</span>
+            </div>
+            <ul id="doctype" class="ui-filter">
+                <li v-for="type in types">
+                    <i class="bi-check"></i>
+                    <span>{{type.name}}</span>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <div class="pb-1 ps-2 text-muted pt-1">
+                <i class="bi-tags fs-5 pe-2"></i>
+                <span>Tags</span>
+            </div>
+        </li>
+        <li class="mb-1 flex-fill">
+            <ul id="doctype" class="ui-filter ms-auto">
+                <li v-for="tag in tags">
+                    <i class="bi-check"></i>
+                    <span>{{tag}}</span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div class="text-end p-1 pe-3 pb-2">
+        <button class="btn btn-secondary p-1 px-3 me-2" onclick="$('#search').toggleClass('hide')">Close</button>
+        <button class="btn btn-primary p-1 px-3" @click="search()">Search</button>
+    </div>
+</div>

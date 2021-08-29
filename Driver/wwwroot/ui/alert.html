@@ -1,0 +1,25 @@
+﻿
+<div id="alert" class="modal modal-alert d-block bg-transparent hide">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content rounded-4 shadow bg-light text-dark border">
+            <div class="modal-body p-4 text-center position-relative">
+                <button v-show="!alert.button_show" class="btn-close position-absolute end-0 top-0 mt-2 me-2" onclick="__alert(false)"></button>
+                <h5 v-show="alert.title != null && alert.title.length > 0" class="mb-0">{{alert.title}}</h5>
+                <p v-show="alert.message != null && alert.message.length > 0" class="my-3">{{alert.message}}</p>
+                <div v-show="alert.input != null && alert.input.length > 0" class="form-floating mb-3 mt-1">
+                    <input type="text" :class="['form-control rounded-4 text-dark', alert.error != null && alert.error.length > 0 ? 'is-invalid' : '']" v-model="alert.value" placeholder="Enter value...">
+                    <label class="text-dark">{{alert.input}}</label>
+                    <div v-show="alert.error != null && alert.error.length > 0" class="invalid-feedback">{{alert.error}}</div>
+                </div>
+                <div :class="['form-check', alert.check_title != null && alert.check_title.length > 0 ? 'd-inline-block' : 'hide']">
+                    <input type="checkbox" class="form-check-input" v-model="alert.check_value" id="alert___checkbox">
+                    <label class="form-check-label" for="alert___checkbox">{{alert.check_title}}</label>
+                </div>
+            </div>
+            <div v-show="alert.button_show" class="modal-footer flex-nowrap p-0">
+                <button type="button" @click="alert_Ok()" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end"><strong>Yes</strong></button>
+                <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0" onclick="__alert(false)">No</button>
+            </div>
+        </div>
+    </div>
+</div>

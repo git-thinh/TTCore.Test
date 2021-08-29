@@ -11,9 +11,11 @@
 #app {
     padding-top: 75px;
 }
+
 #loading {
     z-index: 99999;
 }
+
 #header {
     z-index: 5;
     height: 75px;
@@ -78,3 +80,31 @@ ul.ui-filter {
         background-color: #343a40 !important;
         border-color: #ccc;
     }
+
+#body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+    #body ul li {
+        float: left;
+        border: 1px solid #333;
+        border-radius: 9px;
+        margin: 5px;
+        padding: 0 11px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+    }
+
+        #body ul li i {
+            color: #333;
+            font-size: 2em;
+            padding-right: 7px;
+        }
+
+        #body ul li span {
+            line-height: 55px;
+            font-size: 1.2em;
+        }

@@ -63,29 +63,6 @@ namespace Driver.Services
 
         DriveService _gooService = null;
 
-        public oItem _gooFolder_createNew(string folderName)
-        {
-            try
-            {
-                var FileMetaData = new Google.Apis.Drive.v3.Data.File();
-                FileMetaData.Name = folderName;
-                FileMetaData.MimeType = "application/vnd.google-apps.folder";
-
-                var r = _gooService.Files.Create(FileMetaData);
-                //r.Fields = "id";
-                r.Fields = "*";
-                var file = r.Execute();
-
-                _gooPermission_Create(file.Id);
-
-                return _toModelItem(file);
-            }
-            catch (Exception ex)
-            {
-            }
-            return null;
-        }
-
         public oItem _gooFile_uploadToFolder(IFormFile file, string folderId = "")
         {
             var f = new Google.Apis.Drive.v3.Data.File();
@@ -101,12 +78,15 @@ namespace Driver.Services
 
             var v = r.ResponseBody;
             _gooPermission_Create(v.Id);
-            return _toModelItem(v);
+
+            var o = _toModelItem(v);
+            o.shared = true;
+            return o;
         }
 
         public oItem _gooGetRoot()
         {
-           var v = _gooService.Files.Get("root").Execute();
+            var v = _gooService.Files.Get("root").Execute();
             return _toModelItem(v);
         }
 
@@ -128,26 +108,28 @@ namespace Driver.Services
             return ls.ToArray();
         }
 
-        public oItem _gooFolder_createFolderInFolder(string folderId, string folderName)
+        public oItem _gooFolder_createNew(string folderName, string parentFolderId = "")
         {
-            var FileMetaData = new Google.Apis.Drive.v3.Data.File()
+            var f = new Google.Apis.Drive.v3.Data.File()
             {
                 Name = Path.GetFileName(folderName),
-                MimeType = "application/vnd.google-apps.folder",
-                Parents = new List<string>() { folderId }
+                MimeType = "application/vnd.google-apps.folder"
             };
-            var r = _gooService.Files.Create(FileMetaData);
+            if (!string.IsNullOrEmpty(parentFolderId))
+                f.Parents = new List<string>() { parentFolderId };
+
+            var r = _gooService.Files.Create(f);
             r.Fields = "*";
             var v = r.Execute();
             _gooPermission_Create(v.Id);
             return _toModelItem(v);
         }
 
-        public bool _gooFile_Delete(string fileId)
+        public bool _goo_Delete(string itemId)
         {
             try
             {
-                var v = _gooService.Files.Delete(fileId).Execute();
+                var v = _gooService.Files.Delete(itemId).Execute();
                 return true;
             }
             catch (Exception ex)

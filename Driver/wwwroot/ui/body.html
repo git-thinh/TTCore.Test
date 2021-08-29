@@ -1,0 +1,8 @@
+﻿<div id="body" class="hide w-100">
+    <ul>
+        <li v-for="item in items" @click="item_Click(item)">
+            <i :class="[item.is_dir ? 'bi-folder2-open' : 'bi-file-earmark-text']"></i>
+            <span>{{item.name}}</span>
+        </li>
+    </ul>
+</div>

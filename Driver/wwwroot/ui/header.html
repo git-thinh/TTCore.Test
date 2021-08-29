@@ -1,0 +1,7 @@
+﻿<div id="header" class="d-flex justify-content-between flex-shrink-0 p-3 w-100 position-fixed top-0 hide">
+    <i v-show="back_show" class="bi-arrow-left-short fs-1 pe-2 text-muted" @click="back_Click()"></i>
+    <span class="fs-1 overflow-hidden d-inline text-nowrap">
+        {{currentFolder.name}}
+    </span>
+    <i id="menu_toggle" class="bi bi-list fs-1 ps-2 text-muted" onclick="$('#menu').toggleClass('hide')"></i>
+</div>

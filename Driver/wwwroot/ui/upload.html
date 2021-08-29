@@ -1,0 +1,20 @@
+﻿
+<div id="upload" class="modal modal-alert d-block bg-transparent hide">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content rounded-4 shadow bg-light text-dark border">
+            <div class="modal-body p-4 text-center position-relative">
+                <h5 class="mb-2">Upload files</h5>
+                <div class="">
+                    <div class="input-group has-validation">
+                        <input type="file" onchange="__app.file_uploadFiles(this.files)" :class="['form-control', upload.error != null && upload.error.length > 0 ? 'is-invalid' : '']" multiple required>
+                        <div v-show="upload.error != null && upload.error.length > 0" class="invalid-feedback">{{upload.error}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer flex-nowrap p-0">
+                <button type="button" @click="file_uploadFiles()" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end"><strong>Yes</strong></button>
+                <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0" onclick="$('#upload').toggleClass('hide')">No</button>
+            </div>
+        </div>
+    </div>
+</div>

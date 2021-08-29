@@ -1,0 +1,79 @@
+﻿
+<ul id="menu" class="dropdown-menu dropdown-menu-dark mx-0 border-0 shadow position-fixed hide">
+    <li onclick="$('#search').toggleClass('hide')">
+        <button class="dropdown-item d-flex gap-2 align-items-center">
+            <i class="bi-search pe-3 text-warning"></i>
+            Search
+        </button>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li @click="folder_createNew()">
+        <button class="dropdown-item d-flex gap-2 align-items-center">
+            <i class="bi-folder-plus pe-3 text-warning"></i>
+            Create New Folder
+        </button>
+    </li>
+    <li @click="item_DeleteAlert()">
+        <button class="dropdown-item d-flex gap-2 align-items-center">
+            <i class="bi-folder-x pe-3 text-danger"></i>
+            Delete Folder
+        </button>
+    </li>
+    <li>
+        <button class="dropdown-item d-flex gap-2 align-items-center">
+            <i class="bi-plus-circle pe-3 text-warning"></i>
+            Add File
+        </button>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li>
+        <button class="dropdown-item d-flex gap-2 align-items-center">
+            <i class="bi-trash pe-3 text-danger"></i>
+            Delete File
+        </button>
+    </li>
+    <li>
+        <button class="dropdown-item d-flex gap-2 align-items-center">
+            <i class="bi-files pe-3 text-warning"></i>
+            Copy Content
+        </button>
+    </li>
+    <li>
+        <button class="dropdown-item d-flex gap-2 align-items-center">
+            <i class="bi-pencil-square pe-3 text-warning"></i>
+            Edit
+        </button>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li onclick="__upload(true)">
+        <button class="dropdown-item d-flex gap-2 align-items-center">
+            <i class="bi-cloud-upload pe-3 text-warning"></i>
+            Upload Files
+        </button>
+    </li>
+    <li>
+        <button class="dropdown-item d-flex gap-2 align-items-center">
+            <i class="bi-cloud-download pe-3 text-warning"></i>
+            Download
+        </button>
+    </li>
+    <li><hr class="dropdown-divider"></li>
+    <li onclick="localStorage.removeItem('all'); location.reload();">
+        <button class="dropdown-item d-flex gap-2 align-items-center">
+            <i class="bi-arrow-clockwise pe-3 text-warning"></i>
+            Refresh Data
+        </button>
+    </li>
+    <li onclick="$('#login').toggleClass('hide')">
+        <button class="dropdown-item d-flex gap-2 align-items-center">
+            <i class="bi-box-arrow-in-left pe-3 text-warning"></i>
+            Login
+        </button>
+    </li>
+    <li onclick="$('#login').toggleClass('hide')">
+        <button class="dropdown-item d-flex gap-2 align-items-center">
+            <i class="bi-box-arrow-in-right pe-3 text-warning"></i>
+            Logout
+        </button>
+    </li>
+</ul>
