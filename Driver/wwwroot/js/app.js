@@ -96,7 +96,8 @@ function __initVue() {
     var _timeOut = 700;
     //setTimeout(__upload, _timeOut);
     //setTimeout(function () { __app.file_listAll() }, _timeOut);
-    //setTimeout(function () { __app.item_DeleteAlert() }, _timeOut);
+    //setTimeout(function () { __app.item_DeleteAlert(); }, _timeOut);
+    setTimeout(function () { $('#addcontent').toggleClass('hide'); }, _timeOut);
 
     __app = new Vue({
         el: '#app',
