@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+  "devDependencies": {},
+  "scripts": {
+    "watch-test": "mocha --watch --reporter spec test",
+    "build-js": "node Minify.js"
+  }
+}

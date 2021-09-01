@@ -1,0 +1,187 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "provider": "jsdelivr",
+      "library": "respond.js@1.4.2",
+      "files": [ "dest/respond.min.js" ],
+      "destination": "Lib/respond.js@1.4.2/"
+    },
+    {
+      "library": "popper.js@2.9.2",
+      "files": [ "umd/popper.min.js" ],
+      "destination": "Lib/popper.js@2.9.2/"
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "intersection-observer@0.7.0",
+      "files": [ "intersection-observer.js" ],
+      "destination": "Lib/intersection-observer@0.7.0/"
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "vanilla-lazyload@17.4.0",
+      "files": [ "dist/lazyload.min.js" ],
+      "destination": "Lib/vanilla-lazyload@17.4.0/"
+    },
+    {
+      "library": "accounting.js@0.3.2",
+      "files": [ "accounting.min.js" ],
+      "destination": "Lib/accounting.js@0.3.2/"
+    },
+    {
+      "library": "modernizr@2.8.3",
+      "files": [ "modernizr.min.js" ],
+      "destination": "Lib/modernizr@2.8.3/"
+    },
+    {
+      "library": "underscore.js@1.8.3",
+      "files": [ "underscore-min.js" ],
+      "destination": "Lib/underscore.js@1.8.3/"
+    },
+    {
+      "library": "moment.js@2.19.0",
+      "files": [ "moment.min.js" ],
+      "destination": "Lib/moment.js@2.19.0/"
+    },
+
+    {
+      "library": "twitter-bootstrap@3.3.4",
+      "files": [
+        "css/bootstrap.min.css",
+        "js/bootstrap.min.js"
+      ],
+      "destination": "Lib/twitter-bootstrap@3.3.4/"
+    },
+
+    {
+      "library": "angular-ui-bootstrap@1.3.3",
+      "files": [ "ui-bootstrap.min.js" ],
+      "destination": "Lib/angular-ui-bootstrap@1.3.3/"
+    },
+    {
+      "library": "angular-block-ui@0.2.2",
+      "files": [
+        "angular-block-ui.min.css",
+        "angular-block-ui.min.js"
+      ],
+      "destination": "Lib/angular-block-ui@0.2.2/"
+    },
+    {
+      "library": "angular-ui-select@0.19.8",
+      "files": [
+        "select.min.css",
+        "select.min.js"
+      ],
+      "destination": "Lib/angular-ui-select@0.19.8/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "angular@1.5.8",
+      "files": [ "angular.min.js" ],
+      "destination": "Lib/angular@1.5.8/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "angular-route@1.5.8",
+      "files": [ "angular-route.min.js" ],
+      "destination": "Lib/angular-route@1.5.8/"
+    },
+
+
+    {
+      "library": "font-awesome@4.6.3",
+      "files": [ "css/font-awesome.min.css" ],
+      "destination": "Lib/font-awesome@4.6.3/"
+    },
+    {
+      "library": "font-awesome@4.6.3",
+      "files": [
+        "fonts/fontawesome-webfont.woff",
+        "fonts/fontawesome-webfont.woff2"
+      ],
+      "destination": "Publish/"
+    },
+
+    {
+      "library": "jquery@1.9.1",
+      "files": [ "jquery.min.js" ],
+      "destination": "Lib/jquery@1.9.1/"
+    },
+    {
+      "library": "jquery.fileDownload@1.4.2",
+      "files": [ "jquery.fileDownload.min.js" ],
+      "destination": "Lib/jquery.fileDownload@1.4.2/"
+    },
+    {
+      "library": "jquery-throttle-debounce@1.1",
+      "files": [ "jquery.ba-throttle-debounce.min.js" ],
+      "destination": "Lib/jquery-throttle-debounce@1.1/"
+    },
+    {
+      "library": "jquery.form@3.51",
+      "files": [ "jquery.form.min.js" ],
+      "destination": "Lib/jquery.form@3.51/"
+    },
+    {
+      "library": "jquery-validate@1.15.1",
+      "files": [ "jquery.validate.min.js" ],
+      "destination": "Lib/jquery-validate@1.15.1/"
+    },
+    {
+      "library": "jqueryui@1.11.4",
+      "files": [
+        "jquery-ui.min.js",
+        "jquery-ui.min.css",
+        "jquery-ui.theme.min.css"
+      ],
+      "destination": "Lib/jqueryui@1.11.4/"
+    },
+    {
+      "library": "jquery-confirm@3.3.0",
+      "files": [
+        "jquery-confirm.min.css",
+        "jquery-confirm.min.js"
+      ],
+      "destination": "Lib/jquery-confirm@3.3.0/"
+    },
+
+    {
+      "library": "sticky-kit@1.1.3",
+      "files": [ "sticky-kit.min.js" ],
+      "destination": "Lib/sticky-kit@1.1.3/"
+    },
+    {
+      "library": "slick-carousel@1.6.0",
+      "files": [
+        "slick.min.js",
+        "slick.min.css",
+        "slick-theme.min.css"
+      ],
+      "destination": "Lib/slick-carousel@1.6.0/"
+    },
+    {
+      "library": "tarteaucitronjs@1.9.3",
+      "files": [
+        "tarteaucitron.min.js",
+        "css/tarteaucitron.min.css"
+      ],
+      "destination": "Lib/tarteaucitronjs@1.9.3/"
+    },
+
+
+
+    {
+      "library": "jquery.isotope@3.0.5",
+      "files": [ "isotope.pkgd.min.js" ],
+      "destination": "Lib/jquery.isotope@3.0.5/"
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "jquery-validation-unobtrusive@3.2.12",
+      "files": [ "dist/jquery.validate.unobtrusive.min.js" ],
+      "destination": "Lib/jquery-validation-unobtrusive@3.2.12/"
+    }
+  ]
+}

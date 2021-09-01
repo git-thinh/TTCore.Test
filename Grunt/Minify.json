@@ -1,0 +1,128 @@
+﻿[
+  {
+    "outputFileName": "Dist/global.min.js",
+    "inputFiles": [
+      "..\\Mascot.EPartner.Web\\Scripts\\global.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": false
+    }
+  },
+  {
+    "outputFileName": "Dist/home-pc/com.min.js",
+    "inputFiles": [
+      "Content/tarteaucitron/tarteaucitron.js",
+      "Content/tarteaucitron/tarteaucitron.services.js",
+      "..\\Mascot.EPartner.Web\\Scripts\\FrontEnd\\Commons\\header_func.js",
+      "..\\Mascot.EPartner.Web\\Scripts\\FrontEnd\\Component\\search_dealer.js",
+      "..\\Mascot.EPartner.Web\\Scripts\\FrontEnd\\Component\\footer_newsletter.js",
+      "..\\Mascot.EPartner.Web\\Scripts\\FrontEnd\\Commons\\last_seen_product.js",
+      "..\\Mascot.EPartner.Web\\Scripts\\FrontEnd\\Component\\banner.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": false
+    }
+  },
+  {
+    "outputFileName": "Publish/home-pc.min.js",
+    "inputFiles": [
+      "Content/_start.js",
+      "Lib/underscore.js@1.8.3/underscore-min.js",
+      "Lib/jquery@1.9.1/jquery.min.js",
+      "Lib/twitter-bootstrap@3.3.4/js/bootstrap.min.js",
+      "Lib/popper.js@2.9.2/umd/popper.min.js",
+      "Lib/intersection-observer@0.7.0/intersection-observer.js",
+      "Lib/vanilla-lazyload@17.4.0/dist/lazyload.min.js",
+      "Lib/modernizr@2.8.3/modernizr.min.js",
+      "Dist/global.min.js",
+      "Lib/jquery-validate@1.15.1/jquery.validate.min.js",
+      "Lib/jquery-validation-unobtrusive@3.2.12/jquery.validate.unobtrusive.min.js",
+      "Lib/jquery-throttle-debounce@1.1/jquery.ba-throttle-debounce.min.js",
+      "Lib/respond.js@1.4.2/dest/respond.min.js",
+      "Lib/jquery-confirm@3.3.0/jquery-confirm.min.js",
+      "Lib/jqueryui@1.11.4/jquery-ui.min.js",
+      "Lib/jquery.isotope@3.0.5/isotope.pkgd.min.js",
+      "Lib/slick-carousel@1.6.0/slick.min.js",
+      "Lib/sticky-kit@1.1.3/sticky-kit.min.js",
+      "..\\Mascot.EPartner.Web\\Content\\revolution\\js\\jquery.themepunch.tools.min.js",
+      "..\\Mascot.EPartner.Web\\Content\\revolution\\js\\jquery.themepunch.revolution.min.js",
+      "..\\Mascot.EPartner.Web\\Content\\revolution\\js\\extensions\\revolution.extension.actions.min.js",
+      "..\\Mascot.EPartner.Web\\Content\\revolution\\js\\extensions\\revolution.extension.carousel.min.js",
+      "..\\Mascot.EPartner.Web\\Content\\revolution\\js\\extensions\\revolution.extension.kenburn.min.js",
+      "..\\Mascot.EPartner.Web\\Content\\revolution\\js\\extensions\\revolution.extension.layeranimation.min.js",
+      "..\\Mascot.EPartner.Web\\Content\\revolution\\js\\extensions\\revolution.extension.migration.min.js",
+      "..\\Mascot.EPartner.Web\\Content\\revolution\\js\\extensions\\revolution.extension.navigation.min.js",
+      "..\\Mascot.EPartner.Web\\Content\\revolution\\js\\extensions\\revolution.extension.parallax.min.js",
+      "..\\Mascot.EPartner.Web\\Content\\revolution\\js\\extensions\\revolution.extension.slideanims.min.js",
+      "..\\Mascot.EPartner.Web\\Content\\revolution\\js\\extensions\\revolution.extension.video.min.js",
+      "Dist/home-pc/com.min.js",
+      "..\\Mascot.EPartner.Web\\Content\\_custom\\site\\product-slider.js",
+      "Content/_end.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": false
+    }
+  },
+  {
+    "outputFileName": "Dist/home-pc/com.min.css",
+    "inputFiles": [
+      "..\\Mascot.EPartner.Web\\Content\\revolution\\css\\settings.css",
+      "..\\Mascot.EPartner.Web\\Content\\revolution\\css\\layers.css",
+      "..\\Mascot.EPartner.Web\\Content\\revolution\\css\\navigation.css",
+      "..\\Mascot.EPartner.Web\\Content\\basic.css",
+      "..\\Mascot.EPartner.Web\\Content\\Site.css",
+      "..\\Mascot.EPartner.Web\\Scripts\\tarteaucitron\\css\\tarteaucitron.css",
+      "..\\Mascot.EPartner.Web\\Content\\jquery.jqzoom.css",
+      "..\\Mascot.EPartner.Web\\Content\\_custom\\site\\product-slider.css"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": false
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "Publish/home-pc.min.css",
+    "inputFiles": [
+      "Lib/slick-carousel@1.6.0/slick.min.css",
+      "Lib/slick-carousel@1.6.0/slick-theme.min.css",
+      "Lib/twitter-bootstrap@3.3.4/css/bootstrap.min.css",
+      "Lib/jquery-confirm@3.3.0/jquery-confirm.min.css",
+      "Lib/slick-carousel@1.6.0/slick.min.css",
+      "Lib/jqueryui@1.11.4/jquery-ui.min.css",
+      "Lib/jqueryui@1.11.4/jquery-ui.theme.min.css",
+      "Dist/home-pc/com.min.css"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": false
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "Publish/home-category.min.js",
+    "inputFiles": [
+      "..\\Mascot.EPartner.Web\\Scripts\\FrontEnd\\Commons\\product_filter.js",
+      "..\\Mascot.EPartner.Web\\Scripts\\FrontEnd\\Component\\product_list.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": false
+    }
+  },
+  {
+    "outputFileName": "Publish/home-item.min.js",
+    "inputFiles": [
+      "..\\Mascot.EPartner.Web\\Scripts\\jquery.ez-plus.js",
+      "..\\Mascot.EPartner.Web\\Scripts\\imagerotator.js",
+      "..\\Mascot.EPartner.Web\\Scripts\\FrontEnd\\Commons\\product_detail.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": false
+    }
+  }
+]
