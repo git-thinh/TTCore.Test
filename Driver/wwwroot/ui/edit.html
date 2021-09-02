@@ -1,0 +1,139 @@
+﻿
+<div class="modal d-inline-block w-100 vh-100 hide bg-dark overflow-hidden" id="edit" style="z-index:999;">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content bg-transparent">
+            <div class="modal-body p-0 position-relative overflow-hidden" style="background-color:#000;">
+                <div class="btn-group dropstart position-fixed bottom-0 end-0 border-0 me-1" style="z-index:999;">
+                    <button class="btn bg-transparent dropdown-toggle" type="button" onclick="$('#edit-menu').toggleClass('hide')">
+                        <i class="bi bi-list fs-1 ps-2 text-muted"></i>
+                    </button>
+                    <ul class="dropdown-menu d-inline-block hide end-0 bottom-0 me-3 mb-5" id="edit-menu" style="width:200px;">
+                        <li @click="menu_itemClick('BOOKMARK')" v-if="!item.allow_edit" class="border-bottom p-2">
+                            <i class="bi-check2-all me-1"></i>
+                            <span>Bookmark</span>
+                        </li>
+                        <li @click="menu_itemClick('UPDATE_CONTENT')" v-if="item.allow_edit" class="border-bottom p-2">
+                            <i class="bi-save me-1"></i>
+                            <span>Update Content</span>
+                        </li>
+                        <li @click="menu_itemClick('INSERT_LINE')" v-if="item.allow_edit" class="border-bottom p-2">
+                            <i class="bi-arrow-bar-up me-1"></i>
+                            <span>Insert Line Blank</span>
+                        </li>
+                        <li @click="menu_itemClick('DELETE_SELECT')" v-if="item.allow_edit" class="border-bottom p-2">
+                            <i class="bi-trash me-1"></i>
+                            <span>Delete Selection</span>
+                        </li>
+                        <li @click="menu_itemClick('INSERT_IMAGE')" v-if="item.allow_edit" class="border-bottom p-2">
+                            <i class="bi-image me-1"></i>
+                            <span>Insert Image</span>
+                        </li>
+                        <li @click="menu_itemClick('INSERT_MEDIA')" v-if="item.allow_edit" class="border-bottom p-2">
+                            <i class="bi-music-note me-1"></i>
+                            <span>Insert Media</span>
+                        </li>
+                        <li @click="menu_itemClick('INSERT_YOUTUBE')" v-if="item.allow_edit" class="border-bottom p-2">
+                            <i class="bi-youtube me-1"></i>
+                            <span>Insert Youtube</span>
+                        </li>
+                        <li v-if="!item.allow_edit" class="w-100 p-2 pt-0 border-bottom d-inline-block">
+                            <label class="w-100">Font Size</label>
+                            <div class="btn-group float-end">
+                                <button @click="--item.font_size" type="button" class="btn btn-outline-secondary p-0 px-2">
+                                    <i class="bi-dash"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary p-0 px-2">
+                                    {{item.font_size}}
+                                </button>
+                                <button @click="++item.font_size" type="button" class="btn btn-outline-secondary p-0 px-2">
+                                    <i class="bi-plus"></i>
+                                </button>
+                            </div>
+                        </li>
+                        <li v-if="!item.allow_edit" class="w-100 p-2 pt-0 border-bottom d-inline-block">
+                            <label class="w-100">Line Height</label>
+                            <div class="btn-group float-end">
+                                <button @click="--item.line_height" type="button" class="btn btn-outline-secondary p-0 px-2">
+                                    <i class="bi-dash"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary p-0 px-2">
+                                    {{item.line_height}}
+                                </button>
+                                <button @click="++item.line_height" type="button" class="btn btn-outline-secondary p-0 px-2">
+                                    <i class="bi-plus"></i>
+                                </button>
+                            </div>
+                        </li>
+                        <!--<li v-if="!item.allow_edit" class="w-100 p-2 pt-0 border-bottom d-inline-block">
+                <label class="w-100">Theme</label>
+                <div class="btn-group float-end">
+                    <button type="button" class="btn p-3 btn-outline-secondary"></button>
+                    <button type="button" class="btn p-3 btn-outline-secondary"></button>
+                    <button type="button" class="btn p-3 btn-outline-secondary"></button>
+                    <button type="button" class="btn p-3 btn-outline-secondary"></button>
+                    <button type="button" class="btn p-3 btn-outline-secondary"></button>
+                </div>
+            </li>
+            <li v-if="!item.allow_edit" class="w-100 p-2 pt-0 border-bottom d-inline-block">
+                <label class="w-100 ps-1">Start</label>
+                <div class="btn-group float-end">
+                    <button type="button" class="btn border-0 p-1">
+                        <i class="bi-star"></i>
+                    </button>
+                    <button type="button" class="btn border-0 p-1">
+                        <i class="bi-star"></i>
+                    </button>
+                    <button type="button" class="btn border-0 p-1">
+                        <i class="bi-star"></i>
+                    </button>
+                    <button type="button" class="btn border-0 p-1">
+                        <i class="bi-star"></i>
+                    </button>
+                    <button type="button" class="btn border-0 p-1">
+                        <i class="bi-star"></i>
+                    </button>
+                </div>
+            </li>-->
+                        <li class="border-bottom p-2">
+                            <div class="form-check">
+                                <input v-model="item.allow_edit" class="form-check-input" type="checkbox" id="checkboxMode">
+                                <label class="form-check-label" for="checkboxMode">
+                                    Allow Edit Content
+                                </label>
+                            </div>
+                        </li>
+                        <li>
+                            <button class="dropdown-item" onclick="__edit(false)">Close</button>
+                        </li>
+                    </ul>
+                </div>
+                <ul id="item-setting" class="list-group position-fixed start-0 top-0 bg-light text-dark hide" style="z-index:999;width:136px;">
+                    <li class="p-2 border-bottom">Heading 1</li>
+                    <li class="p-2 border-bottom">Heading 2</li>
+                    <li class="p-2 border-bottom">Heading 3</li>
+                    <li class="p-2 border-bottom">Heading 4</li>
+                    <li class="p-2 border-bottom">Heading 5</li>
+                    <li class="p-2 border-bottom">Heading 6</li>
+                    <li class="p-2 border-bottom">Heading None</li>
+                    <li class="p-2 border-bottom">Bold Apply</li>
+                    <li class="p-2 border-bottom">Bold None</li>
+                    <li class="p-2 border-bottom">Edit Line</li>
+                    <li class="p-2 border-bottom">Delete Line</li>
+                </ul>
+                <div id="edit-content" class="position-relative bg-black text-light p-0 pb-5 border-0 w-100 vh-100 d-inline-block overflow-auto"
+                     onclick="$('#edit-menu').addClass('hide')"
+                     style="z-index:0;">
+                    <p v-for="(line, index) in item.lines"
+                       :id="'line-'+index"
+                       :style="{'font-size' : item.font_size + 'px', 'line-height' : item.line_height + 'px'}"
+                       v-if="line != null"
+                       @click="line_Click(index)"
+                       class="pb-2 text-break w-100 ps-2 pe-1 position-relative">
+                        <i onclick="__app.line_settingClick(event)" class="ui-action bi-gear fs-4 text-danger position-absolute end-0 bottom-0 me-2"></i>
+                        {{line}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

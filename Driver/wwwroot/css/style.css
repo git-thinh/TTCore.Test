@@ -108,3 +108,15 @@ ul.ui-filter {
             line-height: 55px;
             font-size: 1.2em;
         }
+
+#edit .ui-action {
+    display: none;
+}
+
+#edit .line-selection .ui-action {
+    display: inline-block;
+}
+
+#edit .mode-edit .line-selection {
+    background-color: #ffc107;
+}

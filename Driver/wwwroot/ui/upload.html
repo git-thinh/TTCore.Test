@@ -6,7 +6,7 @@
                 <h5 class="mb-2">Upload files</h5>
                 <div class="">
                     <div class="input-group has-validation">
-                        <input type="file" onchange="__app.file_uploadFiles(this.files)" :class="['form-control', upload.error != null && upload.error.length > 0 ? 'is-invalid' : '']" multiple required>
+                        <input type="file" onchange="__files = this.files;" :class="['form-control', upload.error != null && upload.error.length > 0 ? 'is-invalid' : '']" multiple required>
                         <div v-show="upload.error != null && upload.error.length > 0" class="invalid-feedback">{{upload.error}}</div>
                     </div>
                 </div>
