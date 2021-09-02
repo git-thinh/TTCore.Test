@@ -454,7 +454,7 @@ function __initVue() {
                     var el = document.createElement('p');
                     var id = new Date().getTime();
                     var s = `<img class="w-100" src="` + imageBase64 + `"/>
-                        <i class="bi-gear fs-4 text-danger position-absolute end-0 bottom-0 me-2"></i>`;
+                        <i onclick="__app.line_settingClick(` + id + `,event)" class="bi-gear fs-4 text-danger position-absolute end-0 bottom-0 me-2"></i>`;
 
                     el.setAttribute('id', id);
                     el.setAttribute('class', 'line-new text-center p-1 px-5 position-relative');
