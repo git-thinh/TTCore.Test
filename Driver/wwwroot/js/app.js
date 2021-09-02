@@ -139,6 +139,7 @@ function __initVue() {
 
                     indexs: [],
                     new_ids: [],
+                    setting_id: -1,
 
                     id: '',
                     font_size: 25,
@@ -431,9 +432,11 @@ function __initVue() {
                 $('#line-' + index).toggleClass('line-selection');
                 console.log(index, indexs);
             },
-            line_settingClick: function (event) {
-                event.stopPropagation();
+            line_settingClick: function (index, event) {
+                this.item.setting_id = index;
+                $('#edit-menu').addClass('hide');
                 $('#item-setting').toggleClass('hide');
+                event.stopPropagation();
             },
             line_newClick: function (id) {
                 var _self = this, new_ids = _self.item.new_ids;

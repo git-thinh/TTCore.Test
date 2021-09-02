@@ -107,7 +107,7 @@
                         </li>
                     </ul>
                 </div>
-                <ul id="item-setting" class="list-group position-fixed start-0 top-0 bg-light text-dark hide" style="z-index:999;width:136px;">
+                <ul id="item-setting" class="list-group position-fixed start-0 top-0 mt-1 ms-1 bg-light text-dark hide" style="z-index:999;width:136px;">
                     <li class="p-2 border-bottom">Heading 1</li>
                     <li class="p-2 border-bottom">Heading 2</li>
                     <li class="p-2 border-bottom">Heading 3</li>
@@ -129,7 +129,7 @@
                        v-if="line != null"
                        @click="line_Click(index)"
                        class="pb-2 text-break w-100 ps-2 pe-1 position-relative">
-                        <i onclick="__app.line_settingClick(event)" class="ui-action bi-gear fs-4 text-danger position-absolute end-0 bottom-0 me-2"></i>
+                        <i @click="line_settingClick(index, $event)" class="ui-action bi-gear fs-4 text-danger position-absolute end-0 bottom-0 me-2"></i>
                         {{line}}
                     </p>
                 </div>
