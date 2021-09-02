@@ -36,6 +36,10 @@
                             <i class="bi-youtube me-1"></i>
                             <span>Insert Youtube</span>
                         </li>
+                        <li @click="menu_itemClick('INSERT_MODULE')" v-if="item.allow_edit" class="border-bottom p-2">
+                            <i class="bi-layout-wtf me-1"></i>
+                            <span>Insert Module</span>
+                        </li>
                         <li v-if="!item.allow_edit" class="w-100 p-2 pt-0 border-bottom d-inline-block">
                             <label class="w-100">Font Size</label>
                             <div class="btn-group float-end">
@@ -65,35 +69,35 @@
                             </div>
                         </li>
                         <!--<li v-if="!item.allow_edit" class="w-100 p-2 pt-0 border-bottom d-inline-block">
-                <label class="w-100">Theme</label>
-                <div class="btn-group float-end">
-                    <button type="button" class="btn p-3 btn-outline-secondary"></button>
-                    <button type="button" class="btn p-3 btn-outline-secondary"></button>
-                    <button type="button" class="btn p-3 btn-outline-secondary"></button>
-                    <button type="button" class="btn p-3 btn-outline-secondary"></button>
-                    <button type="button" class="btn p-3 btn-outline-secondary"></button>
-                </div>
-            </li>
-            <li v-if="!item.allow_edit" class="w-100 p-2 pt-0 border-bottom d-inline-block">
-                <label class="w-100 ps-1">Start</label>
-                <div class="btn-group float-end">
-                    <button type="button" class="btn border-0 p-1">
-                        <i class="bi-star"></i>
-                    </button>
-                    <button type="button" class="btn border-0 p-1">
-                        <i class="bi-star"></i>
-                    </button>
-                    <button type="button" class="btn border-0 p-1">
-                        <i class="bi-star"></i>
-                    </button>
-                    <button type="button" class="btn border-0 p-1">
-                        <i class="bi-star"></i>
-                    </button>
-                    <button type="button" class="btn border-0 p-1">
-                        <i class="bi-star"></i>
-                    </button>
-                </div>
-            </li>-->
+        <label class="w-100">Theme</label>
+        <div class="btn-group float-end">
+            <button type="button" class="btn p-3 btn-outline-secondary"></button>
+            <button type="button" class="btn p-3 btn-outline-secondary"></button>
+            <button type="button" class="btn p-3 btn-outline-secondary"></button>
+            <button type="button" class="btn p-3 btn-outline-secondary"></button>
+            <button type="button" class="btn p-3 btn-outline-secondary"></button>
+        </div>
+    </li>
+    <li v-if="!item.allow_edit" class="w-100 p-2 pt-0 border-bottom d-inline-block">
+        <label class="w-100 ps-1">Start</label>
+        <div class="btn-group float-end">
+            <button type="button" class="btn border-0 p-1">
+                <i class="bi-star"></i>
+            </button>
+            <button type="button" class="btn border-0 p-1">
+                <i class="bi-star"></i>
+            </button>
+            <button type="button" class="btn border-0 p-1">
+                <i class="bi-star"></i>
+            </button>
+            <button type="button" class="btn border-0 p-1">
+                <i class="bi-star"></i>
+            </button>
+            <button type="button" class="btn border-0 p-1">
+                <i class="bi-star"></i>
+            </button>
+        </div>
+    </li>-->
                         <li class="border-bottom p-2">
                             <div class="form-check">
                                 <input v-model="item.allow_edit" class="form-check-input" type="checkbox" id="checkboxMode">
