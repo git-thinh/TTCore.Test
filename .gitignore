@@ -21,3 +21,5 @@
 /PDF2Image.FormPushUpload/obj
 /Driver/bin
 /Driver/obj
+/Hangfire/bin
+/Hangfire/obj
