@@ -1,0 +1,366 @@
+[
+  {
+    "node": {
+      "id": "264462855467059",
+      "created_time": 1633093470,
+      "last_renew_time": 1633093558,
+      "business_or_employer_name": { "text": "2BEES - Th\u1ee3 C\u1ee7a M\u1ecdi Nh\u00e0" },
+      "city_name": "H\u00e0 N\u1ed9i",
+      "employer": {
+        "id": "1037027013104562",
+        "is_owned": true
+      },
+      "long_description": { "text": "C\u00f4ng ty ion h\u01b0ng ph\u00e1t t\u1ea1i long bi\u00ean c\u1ea7n tuy\u1ec3n th\u1ee3 ph\u1ee5 \u0111i\u1ec7n n\u01b0\u1edbc l\u1eafp \u0111\u1eb7t v\u00e0 b\u1ea3o tr\u00ec l\u1ecdc n\u01b0\u1edbc t\u1ed5ng ,c\u00f4ng vi\u1ec7c l\u00e2u d\u00e0i \u1ed5n \u0111\u1ecbnh ch\u01b0a bi\u1ebft \u0111\u01b0\u1ee3c \u0111\u00e0o t\u1ea1o .Li\u00ean h\u1ec7 : 0942887576" },
+      "application_flow": "NATIVE",
+      "has_viewer_applied": false,
+      "job_application_medium": 9,
+      "job_source": "PAGE_COMPOSER",
+      "job_status": "OPEN",
+      "shimmed_offsite_application_url": null,
+      "viewer_application": null,
+      "viewer_saved_state": "NOT_SAVABLE",
+      "referer_mechanism": null,
+      "referer_surface": null,
+      "extracted_wage_text": { "text": "" },
+      "job_type_text": { "text": "To\u00e0n th\u1eddi gian" },
+      "preferred_skills": [],
+      "required_skills": [],
+      "title": { "text": "C\u00e1c th\u1ee3 \u0111i\u1ec7n" },
+      "wage_text": { "text": "" },
+      "jobs_seo_virtual_category": null,
+      "__typename": "JobOpening"
+    },
+    "query_id": "-7597037105156156176",
+    "cursor": "264462855467059"
+  },
+  {
+    "node": {
+      "id": "930133551192761",
+      "created_time": 1633509927,
+      "last_renew_time": 1633509941,
+      "business_or_employer_name": { "text": "M\u1eb9 v\u00e0 B\u00e9 _ Bokera Store" },
+      "city_name": "H\u00e0 N\u1ed9i",
+      "employer": {
+        "id": "105140355003154",
+        "is_owned": true
+      },
+      "long_description": { "text": "\ud83c\udfe4 NH\u00c0 PH\u00c2N PH\u1ed0I H\u00c0NG NH\u1eacT N\u1ed8I \u0110\u1ecaA BOKERA STORE \ud83c\udfe4\n\n\n\ud83d\udce3\ud83d\udce3\ud83d\udce3Tuy\u1ec3n CTV b\u00e1n h\u00e0ng Nh\u1eadt ch\u00ednh h\u00e3ng\n\n\n1\ufe0f\u20e3 C\u00c1CH TH\u1ee8C L\u00c0M C\u1ed8NG T\u00c1C VI\u00caN\n\n\u274c B\u1ea1n kh\u00f4ng c\u1ea7n v\u1ed1n\n\n\u274c B\u1ea1n kh\u00f4ng ph\u1ea3i \u00f4m h\u00e0ng\n\n\u274c B\u1ea1n kh\u00f4ng c\u1ea7n ph\u1ea3i \u0111i giao h\u00e0ng v\u1ea5t v\u1ea3\n\n\n2\ufe0f\u20e3 C\u00d4NG VI\u1ec6C:\n\n\ud83e\udd17 Si\u00eang n\u0103ng, ch\u0103m ch\u1ec9 up sp b\u00ean m\u00ecnh \u0111\u1ec3 b\u00e1n -> ch\u1ed1t \u0111\u01a1n -> nh\u1eadn hoa h\u1ed3ng\n\n\ud83e\udd17 C\u00f3 danh s\u00e1ch s\u1ea3n ph\u1ea9m, \u1ea3nh, gi\u00e1 c\u1ea3 \u0111\u1ec3 CTV b\u00e1n h\u00e0ng\n\n\n3\ufe0f\u20e3 HOA H\u1ed2NG \u0110\u01af\u1ee2C NH\u1eacN: \n\n\u2705 Ph\u1ea7n \u0025 chi\u1ebft kh\u1ea5u cao, ch\u1ec9 nh\u1ea5t kh\u00f4ng c\u00f3 nh\u00ec \n\n\ud83d\udcb8 Chuy\u1ec3n hoa h\u1ed3ng ngay v\u00e0 lu\u00f4n trong 1 n\u1ed1t nh\u1ea1c (ti\u1ec1n m\u1eb7t ho\u1eb7c ck)\n\n\ud83d\udc49 Ng\u00e0y l\u00e0m 2-3h th\u00e1ng ki\u1ebfm 3-5tr\n\n\nCH\u00daNG T\u00d4I S\u1ebc: \n\n\ud83d\udc68\u200d\ud83d\udd2c H\u1ed7 tr\u1ee3 marketing v\u00e0 ph\u01b0\u01a1ng ph\u00e1p b\u00e1n h\u00e0ng hi\u1ec7u qu\u1ea3, li\u00ean t\u1ee5c.\n\n\ud83d\udc68\u200d\ud83d\udd2c C\u00f3 \u0111\u1ed9i ng\u0169 nh\u00e2n vi\u00ean ch\u0103m s\u00f3c t\u01b0 v\u1ea5n v\u1ec1 s\u1ea3n ph\u1ea9m m\u1ecdi l\u00fac cho CTV khi c\u1ea7n.\n\n\ud83d\udc68\u200d\ud83d\udd2c H\u1ed7 tr\u1ee3 CTV nh\u1eadp \u0111\u01b0\u1ee3c gi\u00e1 s\u00e1t gi\u00e1 s\u1ec9 nh\u1ea5t c\u00f3 th\u1ec3\n\n\n\ud83d\udcafCam k\u1ebft h\u00e0ng chu\u1ea9n Nh\u1eadt n\u1ed9i \u0111\u1ecba t\u1edbi ng\u01b0\u1eddi ti\u00eau d\u00f9ng\n\n\ud83e\udd11 Cung c\u1ea5p ngu\u1ed3n h\u00e0ng h\u00f3a \u0111a d\u1ea1ng, phong ph\u00fa - Th\u1ecfa m\u00e3n m\u1ecdi CTV \n\n\ud83d\ude18 H\u1ed7 tr\u1ee3 l\u00ean \u0111\u1ea1i l\u00fd ph\u00e2n ph\u1ed1i n\u1ebfu CTV c\u00f3 \u00fd \u0111\u1ecbnh.\n\n\ud83d\udc49 LI\u00ean h\u1ec7 ngay \u0111\u1ec3 \u0111\u01b0\u1ee3c t\u01b0 v\u1ea5n mi\u1ec5n ph\u00ed\n\n\n\ud83e\udd1d\ud83e\udd1d\ud83e\udd1dCHIA S\u1eba C\u01a0 H\u1ed8I, H\u1ee2P T\u00c1C TH\u00c0NH C\u00d4NG\ud83e\udd1d\ud83e\udd1d\n\n\n\ud83c\udfe2  T\u00f2a A - Chung c\u01b0 789 - M\u1ef9 \u0110\u00ecnh 1 - Nam T\u1eeb Li\u00eam - H\u00e0 N\u1ed9i \n\n\u260e\ufe0f 0911220052" },
+      "application_flow": "NATIVE",
+      "has_viewer_applied": false,
+      "job_application_medium": 9,
+      "job_source": "PAGE_COMPOSER",
+      "job_status": "OPEN",
+      "shimmed_offsite_application_url": null,
+      "viewer_application": null,
+      "viewer_saved_state": "NOT_SAVABLE",
+      "referer_mechanism": null,
+      "referer_surface": null,
+      "extracted_wage_text": { "text": "" },
+      "job_type_text": { "text": "To\u00e0n th\u1eddi gian" },
+      "preferred_skills": [],
+      "required_skills": [],
+      "title": { "text": "CTV kinh doanh h\u00e0ng Nh\u1eadt Online" },
+      "wage_text": { "text": "3.000.000\u00a0\u20ab - 5.000.000\u00a0\u20ab\/th\u00e1ng" },
+      "jobs_seo_virtual_category": null,
+      "__typename": "JobOpening"
+    },
+    "query_id": "-7597037105156156176",
+    "cursor": "930133551192761"
+  },
+  {
+    "node": {
+      "id": "388611192894374",
+      "created_time": 1633857472,
+      "last_renew_time": 1633857485,
+      "business_or_employer_name": { "text": "Marketing Digital" },
+      "city_name": "H\u00e0 N\u1ed9i",
+      "employer": {
+        "id": "104500191367737",
+        "is_owned": true
+      },
+      "long_description": { "text": "H\u1eb1ng ng\u00e0y v\u00e0o nh\u00f3m l\u1ea5y \u1ea3nh \u0111\u0103ng l\u00ean c\u00e1c trang MXH" },
+      "application_flow": "NATIVE",
+      "has_viewer_applied": false,
+      "job_application_medium": 9,
+      "job_source": "PAGE_COMPOSER",
+      "job_status": "OPEN",
+      "shimmed_offsite_application_url": null,
+      "viewer_application": null,
+      "viewer_saved_state": "NOT_SAVABLE",
+      "referer_mechanism": null,
+      "referer_surface": null,
+      "extracted_wage_text": { "text": "" },
+      "job_type_text": { "text": "To\u00e0n th\u1eddi gian" },
+      "preferred_skills": [],
+      "required_skills": [],
+      "title": { "text": "CTV B\u00e1n Gi\u00e0y Online" },
+      "wage_text": { "text": "50\u00a0\u20ab - 500.000\u00a0\u20ab\/gi\u1edd" },
+      "jobs_seo_virtual_category": null,
+      "__typename": "JobOpening"
+    },
+    "query_id": "-7597037105156156176",
+    "cursor": "388611192894374"
+  },
+  {
+    "node": {
+      "id": "594888421689843",
+      "created_time": 1634017234,
+      "last_renew_time": 1634017255,
+      "business_or_employer_name": { "text": "Ng\u00e2n h\u00e0ng" },
+      "city_name": "H\u00e0 N\u1ed9i",
+      "employer": {
+        "id": "104956438532405",
+        "is_owned": false
+      },
+      "long_description": { "text": "Chuy\u00ean vi\u00ean quan h\u1ec7 kh\u00e1ch h\u00e0ng \n( nh\u1eadn \u0111\u00e0o t\u1ea1o nghi\u1ec7p v\u1ee5 ) \nL\u01b0\u01a1ng: 8.500.000vnd\/26 ng\u00e0y c\u00f4ng \nTh\u1ee9 2-s\u00e1ng Th\u1ee9 7 \nTh\u1eddi gian: 8h-17h30 ( ngh\u1ec9 tr\u01b0a ) \nM\u00f4 t\u1ea3 c\u00f4ng vi\u1ec7c \n- H\u01b0\u1edbng d\u1eabn kh\u00e1ch h\u00e0ng g\u1eedi ti\u1ec1n \n- H\u01b0\u1edbng d\u1eabn kh\u00e1ch h\u00e0ng giao d\u1ecbch t\u1ea1i qu\u1ea7y giao d\u1ecbch \n- Gi\u1ea3i \u0111\u00e1p th\u1eafc m\u1eafc s\u1ea3n ph\u1ea9m ng\u00e2n h\u00e0ng v\u1edbi kh\u00e1ch h\u00e0ng \n- Ho\u00e0n t\u1ea5t th\u1ee7 t\u1ee5c g\u1eedi, vay kh\u00e1ch h\u00e0ng. \n\n( Kh\u00f4ng y\u00eau c\u1ea7u tu\u1ed5i, kinh nghi\u1ec7m) \nY\u00eau c\u1ea7u: K\u1ef9 n\u0103ng giao ti\u1ebfp, nhanh nh\u1eb9n, c\u00f3 t\u00ecnh th\u1ea7n t\u1ef1 gi\u00e1c." },
+      "application_flow": "NATIVE",
+      "has_viewer_applied": false,
+      "job_application_medium": 1,
+      "job_source": "USER",
+      "job_status": "OPEN",
+      "shimmed_offsite_application_url": null,
+      "viewer_application": null,
+      "viewer_saved_state": "NOT_SAVABLE",
+      "referer_mechanism": null,
+      "referer_surface": null,
+      "extracted_wage_text": { "text": "" },
+      "job_type_text": { "text": "To\u00e0n th\u1eddi gian" },
+      "preferred_skills": [],
+      "required_skills": [],
+      "title": { "text": "Nh\u00e2n Vi\u00ean QHKH Ng\u00e0nh Ng\u00e2n H\u00e0ng" },
+      "wage_text": { "text": "700.000\u00a0\u20ab - 900.000\u00a0\u20ab\/gi\u1edd" },
+      "jobs_seo_virtual_category": null,
+      "__typename": "JobOpening"
+    },
+    "query_id": "-7597037105156156176",
+    "cursor": "594888421689843"
+  },
+  {
+    "node": {
+      "id": "1257679091337784",
+      "created_time": 1633161822,
+      "last_renew_time": 1633161834,
+      "business_or_employer_name": { "text": "Tr\u00e0 s\u1eefa Pozaa Tea" },
+      "city_name": "H\u00e0 N\u1ed9i",
+      "employer": {
+        "id": "105433851421980",
+        "is_owned": false
+      },
+      "long_description": { "text": "\u2666\ufe0f\u2666\ufe0f\u2666\ufe0f TUY\u1ec2N D\u1ee4NG\nTr\u00e0 S\u1eefa POZAA TEA tuy\u1ec3n nh\u00e2n vi\u00ean l\u00e0m vi\u1ec7c t\u1ea1i \n     -c\u01a1 s\u1edf 60 T\u1ea1 Quang B\u1eedu\n     - c\u01a1 s\u1edf 564 Tr\u1ea7n Kh\u00e1t Ch\u00e2n\n- C\u00f4ng vi\u1ec7c : order, thu ng\u00e2n , pha ch\u1ebf\n- Y\u00eau c\u1ea7u :nhanh nh\u1eb9n,trung th\u1ef1c ,th\u1eadt th\u00e0 nhi\u1ec7t t\u00ecnh v\u1edbi c\u00f4ng vi\u1ec7c, l\u00e0m \u0111\u01b0\u1ee3c c\u00e1c ng\u00e0y cu\u1ed1i tu\u1ea7n,l\u1ec5 t\u1ebft (Y\u00caU C\u1ea6U L\u00c0M L\u00c2U D\u00c0I g\u1eafn b\u00f3 t\u1ed5i thi\u1ec3u 3-6 th\u00e1ng)\n\ud83c\udd7e\ufe0fPART TIME\n- L\u01b0\u01a1ng :16k-24k\/h (ng\u00e0y l\u1ec5 t\u1ebft c\u00f3 th\u01b0\u1edfng)\n\u2705- Ca 1: 8h-13h\n\u2705- Ca 2:13h-17h\n\u2705- Ca3 : 17h-22h30\nOr 2 ca ( ph\u1ecfng v\u1ea5n s\u1ebd \u0111\u01b0\u1ee3c ph\u1ed5 bi\u1ebfn chi ti\u1ebft)\nOr L\u1ecbch l\u00e0m c\u00f3 th\u1ec3 linh \u0111\u1ed9ng theo l\u1ecbch h\u1ecdc\n\ud83c\udd7e\ufe0fFULL TIME :4tr5\/th\u00e1ng\n- S\u0111t li\u00ean h\u1ec7 : 0352901543 ( V\u00e2n ) \n\u0110\u1ebfn ph\u1ecfng v\u1ea5n tr\u1ef1c ti\u1ebfp t\u1ea1i c\u1eeda h\u00e0ng ,kh\u00f4ng y\u00eau c\u1ea7u h\u1ed3 s\u01a1 ( \u0111\u1ecba \u0111i\u1ec3m Ph\u1ecfng v\u1ea5n : 564 Tr\u1ea7n Kh\u00e1t Ch\u00e2n\nL\u1ecaCH PH\u1eceNG V\u1ea4N trong ng\u00e0y 1\/10 -2\/10-3\/10" },
+      "application_flow": "NATIVE",
+      "has_viewer_applied": false,
+      "job_application_medium": 1,
+      "job_source": "USER",
+      "job_status": "OPEN",
+      "shimmed_offsite_application_url": null,
+      "viewer_application": null,
+      "viewer_saved_state": "NOT_SAVABLE",
+      "referer_mechanism": null,
+      "referer_surface": null,
+      "extracted_wage_text": { "text": "" },
+      "job_type_text": { "text": "To\u00e0n th\u1eddi gian" },
+      "preferred_skills": [],
+      "required_skills": [],
+      "title": { "text": "Nh\u00e2n Vi\u00ean" },
+      "wage_text": { "text": "" },
+      "jobs_seo_virtual_category": {
+        "taxonomy_path": [
+          {
+            "id": "887703098736833",
+            "name": "B\u00e1n l\u1ebb"
+          },
+          {
+            "id": "451975445938836",
+            "name": "Th\u1ee7 qu\u1ef9"
+          }
+        ],
+        "id": "451975445938836"
+      },
+      "__typename": "JobOpening"
+    },
+    "query_id": "-7597037105156156176",
+    "cursor": "1257679091337784"
+  },
+  {
+    "node": {
+      "id": "4845681878795727",
+      "created_time": 1633595899,
+      "last_renew_time": 1633595910,
+      "business_or_employer_name": { "text": "Vietmark 182a Kh\u01b0\u01a1ng \u0110\u00ecnh" },
+      "city_name": "H\u00e0 N\u1ed9i",
+      "employer": {
+        "id": "2595378204020743",
+        "is_owned": true
+      },
+      "long_description": { "text": "Nh\u00e2n vi\u00ean b\u00e1n h\u00e0ng . B\u00e1n th\u1eddi gian . C\u00f4ng vi\u1ec7c l\u00e0 b\u00e1n h\u00e0ng. S\u1eafp x\u1ebfp v\u1ec7 sinh h\u00e0ng h\u00f3a. D\u00e1n tem khi c\u00f3 h\u00e0ng v\u1ec1.." },
+      "application_flow": "NATIVE",
+      "has_viewer_applied": false,
+      "job_application_medium": 9,
+      "job_source": "PAGE_COMPOSER",
+      "job_status": "OPEN",
+      "shimmed_offsite_application_url": null,
+      "viewer_application": null,
+      "viewer_saved_state": "NOT_SAVABLE",
+      "referer_mechanism": null,
+      "referer_surface": null,
+      "extracted_wage_text": { "text": "" },
+      "job_type_text": { "text": "B\u00e1n th\u1eddi gian" },
+      "preferred_skills": [],
+      "required_skills": [],
+      "title": { "text": "Tuy\u1ec3n D\u1ee5ng Nh\u00e2n Vi\u00ean B\u00e1n H\u00e0ng" },
+      "wage_text": { "text": "16.000\u00a0\u20ab\/gi\u1edd" },
+      "jobs_seo_virtual_category": {
+        "taxonomy_path": [
+          {
+            "id": "887703098736833",
+            "name": "B\u00e1n l\u1ebb"
+          },
+          {
+            "id": "827088631209524",
+            "name": "Nh\u00e2n vi\u00ean b\u00e1n l\u1ebb"
+          }
+        ],
+        "id": "827088631209524"
+      },
+      "__typename": "JobOpening"
+    },
+    "query_id": "-7597037105156156176",
+    "cursor": "4845681878795727"
+  },
+  {
+    "node": {
+      "id": "4414742908617340",
+      "created_time": 1634011951,
+      "last_renew_time": 1634012097,
+      "business_or_employer_name": { "text": "MMD Group" },
+      "city_name": "H\u00e0 N\u1ed9i",
+      "employer": {
+        "id": "113568924432056",
+        "is_owned": false
+      },
+      "long_description": { "text": "Quy\u1ec1n l\u1ee3i: \n- \u0110\u01b0\u1ee3c k\u00e8m c\u1eb7p, h\u01b0\u1edbng d\u1eabn l\u00e0m vi\u1ec7c chi ti\u1ebft\n- \u0110\u01b0\u1ee3c tham gia Teambuilding, Workshop, Du l\u1ecbch, \u2026 \n- C\u01a1 ch\u1ebf th\u0103ng ti\u1ebfn trong c\u00f4ng vi\u1ec7c r\u00f5 r\u00e0ng \n- Thu nh\u1eadp partime t\u1eeb 2-4tr (c\u00f3 th\u1ec3 h\u01a1n tu\u1ef3 n\u0103ng l\u1ef1c)\nH\u00ecnh th\u1ee9c l\u00e0m vi\u1ec7c: Online \/ offline" },
+      "application_flow": "NATIVE",
+      "has_viewer_applied": false,
+      "job_application_medium": 1,
+      "job_source": "USER",
+      "job_status": "OPEN",
+      "shimmed_offsite_application_url": null,
+      "viewer_application": null,
+      "viewer_saved_state": "NOT_SAVABLE",
+      "referer_mechanism": null,
+      "referer_surface": null,
+      "extracted_wage_text": { "text": "" },
+      "job_type_text": { "text": "B\u00e1n th\u1eddi gian" },
+      "preferred_skills": [],
+      "required_skills": [],
+      "title": { "text": "C\u1ed8NG T\u00c1C VI\u00caN KINH DOANH" },
+      "wage_text": { "text": "2\u00a0\u20ab - 4\u00a0\u20ab\/th\u00e1ng" },
+      "jobs_seo_virtual_category": null,
+      "__typename": "JobOpening"
+    },
+    "query_id": "-7597037105156156176",
+    "cursor": "4414742908617340"
+  },
+  {
+    "node": {
+      "id": "1232650990543670",
+      "created_time": 1633801603,
+      "last_renew_time": 1633801983,
+      "business_or_employer_name": { "text": "L\u1ecdc n\u01b0\u1edbc 365" },
+      "city_name": "H\u00e0 N\u1ed9i",
+      "employer": {
+        "id": "103852488746425",
+        "is_owned": false
+      },
+      "long_description": { "text": "- Thu nh\u1eadp l\u00ean t\u1edbi >15tr\n- Ko c\u1ea7n kinh nghi\u1ec7m, b\u1eb1ng c\u1ea5p\n- \u0110\u01b0\u1ee3c \u0111\u00e0o t\u1ea1o mi\u1ec5n ph\u00ed\n- C\u00f4ng ty c\u1ea5p \u0111\u01a1n h\u00e0ng 7-10 \u0111\u01a1n\/ng\u00e0y; ch\u1ea1y th\u1ecfa m\u00e1i." },
+      "application_flow": "NATIVE",
+      "has_viewer_applied": false,
+      "job_application_medium": 2,
+      "job_source": "USER",
+      "job_status": "OPEN",
+      "shimmed_offsite_application_url": null,
+      "viewer_application": null,
+      "viewer_saved_state": "NOT_SAVABLE",
+      "referer_mechanism": null,
+      "referer_surface": null,
+      "extracted_wage_text": { "text": "" },
+      "job_type_text": { "text": "To\u00e0n th\u1eddi gian" },
+      "preferred_skills": [],
+      "required_skills": [],
+      "title": { "text": "K\u1ef9 thu\u1eadt vi\u00ean s\u1eeda l\u1ecdc n\u01b0\u1edbc Ko c\u1ea7n KN" },
+      "wage_text": { "text": "15.000.000\u00a0\u20ab\/th\u00e1ng" },
+      "jobs_seo_virtual_category": null,
+      "__typename": "JobOpening"
+    },
+    "query_id": "-7597037105156156176",
+    "cursor": "1232650990543670"
+  },
+  {
+    "node": {
+      "id": "1547629385569772",
+      "created_time": 1634182845,
+      "last_renew_time": 1634182864,
+      "business_or_employer_name": { "text": "BDS Ph\u1ed1 Xanh 1811" },
+      "city_name": "H\u00e0 N\u1ed9i",
+      "employer": {
+        "id": "114364087413415",
+        "is_owned": true
+      },
+      "long_description": { "text": "\ud83d\udcb0 Thu nh\u1eadp: L\u01b0\u01a1ng, th\u01b0\u1edfng kh\u00f4ng gi\u1edbi h\u1ea1n t\u1eeb #40tri\u1ec7u \u0111\u1ebfn tr\u00ean #80tri\u1ec7u \/ th\u00e1ng.\n\ud83d\udd16Ye\u0302u ca\u0302\u0300u:\n-       Nam\/N\u1eef t\u1ed1t nghi\u1ec7p THPT, c\u00e1c tr\u01b0\u1eddng \u0110\u1ea1i h\u1ecdc v\u1ec1 Kinh t\u1ebf, T\u00e0i ch\u00ednh\n-        \u0110\u1ed9 tu\u1ed5i: 22 tu\u1ed5i tr\u1edf l\u00ean\n-        \u0110am m\u00ea kinh doanh, nhanh nh\u1eb9n, ham h\u1ecdc h\u1ecfi v\u00e0 ch\u1ecbu \u00e1p l\u1ef1c t\u1ed1t\n-        K\u1ef9 n\u0103ng giao ti\u1ebfp th\u00e0nh th\u1ea1o, t\u1ef1 tin\n-        C\u00f3 kinh nghi\u1ec7m l\u00e0m nh\u00e2n vi\u00ean kinh doanh l\u00e0 m\u1ed9t l\u1ee3i th\u1ebf\n\u23f0 Th\u1eddi gian l\u00e0m vi\u1ec7c : full-time\n\ud83d\udd16 Quye\u0302\u0300n lo\u031b\u0323i\n-     M\u00f4i tr\u01b0\u1eddng tr\u1ebb trung n\u0103ng \u0111\u1ed9ng v\u1edbi nhi\u1ec1u ho\u1ea1t \u0111\u1ed9ng g\u1eafn k\u1ebft, team bonding\n-     \u0110\u01b0\u1ee3c \u0111\u00e0o t\u1ea1o, d\u1eabn d\u1eaft b\u1edfi c\u00e1c chuy\u00ean gia t\u01b0 v\u1ea5n b\u1ea3o hi\u1ec3m h\u00e0ng \u0111\u1ea7u Vi\u1ec7t Nam\n-     L\u00e0m vi\u1ec7c trong c\u00f4ng ty B\u1ea3o hi\u1ec3m h\u00e0ng \u0111\u1ea7u Nh\u1eadt B\u1ea3n, m\u00f4i tr\u01b0\u1eddng chuy\u00ean nghi\u1ec7p, minh b\u1ea1ch v\u00e0 c\u00f4ng b\u1eb1ng\n-     L\u1ed9 tr\u00ecnh th\u0103ng ti\u1ebfn r\u00f5 r\u00e0ng, c\u01a1 h\u1ed9i \u0111\u01b0\u1ee3c l\u00ean tr\u01b0\u1edfng nh\u00f3m trong 6 th\u00e1ng\n-     Ch\u1ebf \u0111\u1ed9 t\u0103ng l\u01b0\u01a1ng c\u1ea1nh tranh \n-     Th\u01b0\u1edfng theo c\u00e1c ch\u01b0\u01a1ng tr\u00ecnh thi \u0111ua h\u1ea5p d\u1eabn, th\u01b0\u1edfng th\u00e1ng 13, th\u01b0\u1eddng n\u0103m, th\u01b0\u1edfng qu\u00fd, th\u01b0\u1edfng t\u1ebft\n-   Ngh\u1ec9 ph\u00e9p 12 ng\u00e0y\/n\u0103m\n-     Th\u01b0\u1edfng du l\u1ecbch n\u01b0\u1edbc ngo\u00e0i 2-3 l\u1ea7n\/n\u0103m\n-     \u0110\u01b0\u1ee3c cung c\u1ea5p \u0111\u1ea7y \u0111\u1ee7 c\u00e1c thi\u1ebft b\u1ecb h\u1ed7 tr\u1ee3 c\u00f4ng vi\u1ec7c\n-     H\u1ed7 tr\u1ee3 v\u1ec1 trang ph\u1ee5c\n-     C\u01a1 h\u1ed9i cho c\u00e1c b\u1ea1n mu\u1ed1n x\u00e2y d\u1ef1ng s\u1ef1 nghi\u1ec7p c\u1ee7a ri\u00eang m\u00ecnh \n\ud83d\udca2 \u0110\u1eb7c bi\u1ec7t, sau 2 th\u00e1ng \u0111\u1ea1t KPI s\u1ebd \u0111\u01b0\u1ee3c th\u0103ng ti\u1ebfn l\u00ean t\u01b0 v\u1ea5n t\u00e0i ch\u00ednh FC\n       (T\u1ed5ng thu nh\u1eadp t\u1eeb 40-80tr\/th\u00e1ng)\n\ud83d\udccc C\u00d3 H\u1ed6 TR\u1ee2 L\u00c0M VI\u1ec6C ONLINE" },
+      "application_flow": "NATIVE",
+      "has_viewer_applied": false,
+      "job_application_medium": 11,
+      "job_source": "PAGE_COMPOSER",
+      "job_status": "OPEN",
+      "shimmed_offsite_application_url": null,
+      "viewer_application": null,
+      "viewer_saved_state": "NOT_SAVABLE",
+      "referer_mechanism": null,
+      "referer_surface": null,
+      "extracted_wage_text": { "text": "" },
+      "job_type_text": { "text": "To\u00e0n th\u1eddi gian" },
+      "preferred_skills": [],
+      "required_skills": [],
+      "title": { "text": "VI\u1ec6C L\u00c0M THU NH\u1eacP CAO: CH\u1ed0T 1 TH\u01af\u01a0NG V\u1ee4 C\u00d3 NGAY 40 TRI\u1ec6U. KH\u00d4NG Y\u00caU C\u1ea6U KINH NGHI\u1ec6M." },
+      "wage_text": { "text": "40.000.000\u00a0\u20ab - 80.000.000\u00a0\u20ab\/th\u00e1ng" },
+      "jobs_seo_virtual_category": null,
+      "__typename": "JobOpening"
+    },
+    "query_id": "-7597037105156156176",
+    "cursor": "1547629385569772"
+  },
+  {
+    "node": {
+      "id": "978565032875548",
+      "created_time": 1633308433,
+      "last_renew_time": 1633308447,
+      "business_or_employer_name": { "text": "D\u1ecbch V\u1ee5 S\u1eeda Ch\u1eefa Thay L\u00f5i L\u1ecdc N\u01b0\u1edbc T\u1ea1i Nh\u00e0" },
+      "city_name": "H\u00e0 N\u1ed9i",
+      "employer": {
+        "id": "104230565050836",
+        "is_owned": true
+      },
+      "long_description": { "text": "- Thu nh\u1eadp l\u00ean t\u1edbi h\u01a1n 20 Tri\u1ec7u.\n- \u0110\u01b0\u1ee3c \u0111\u00e0o t\u1ea1o b\u00e0i b\u1ea3n, kh\u00f4ng c\u1ea7n c\u00f3 kinh nghi\u1ec7m.\n- H\u00e0ng ng\u00e0y nh\u1eadn \u0111\u01a1n t\u1eeb c\u00f4ng ty, di chuy\u1ec3n \u0111\u1ebfn nh\u00e0 kh\u00e1ch h\u00e0ng b\u1ea3o d\u01b0\u1ee1ng, s\u1eeda ch\u1eefa, thay l\u00f5i l\u1ecdc n\u01b0\u1edbc." },
+      "application_flow": "NATIVE",
+      "has_viewer_applied": false,
+      "job_application_medium": 11,
+      "job_source": "PAGE_COMPOSER",
+      "job_status": "OPEN",
+      "shimmed_offsite_application_url": null,
+      "viewer_application": null,
+      "viewer_saved_state": "NOT_SAVABLE",
+      "referer_mechanism": null,
+      "referer_surface": null,
+      "extracted_wage_text": { "text": "" },
+      "job_type_text": { "text": "To\u00e0n th\u1eddi gian" },
+      "preferred_skills": [],
+      "required_skills": [],
+      "title": { "text": "H\u00e0 N\u1ed9i C\u1ea7n g\u1ea5p 10 K\u1ef9 thu\u1eadt vi\u00ean L\u1ecdc n\u01b0\u1edbc" },
+      "wage_text": { "text": "9.000.000\u00a0\u20ab\/th\u00e1ng" },
+      "jobs_seo_virtual_category": null,
+      "__typename": "JobOpening"
+    },
+    "query_id": "-7597037105156156176",
+    "cursor": "978565032875548"
+  }
+]

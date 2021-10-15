@@ -39,6 +39,14 @@ namespace Driver.Controllers
         static oItem _rootFolder = null;
         static oItem[] _items = new oItem[] { };
 
+        [HttpGet("blog/test")]
+        public bool blog_Test()
+        {
+            _driver.blog_Test();
+            return true;
+        }
+
+
         [HttpGet("refresh")]
         public bool refreshAll()
         {

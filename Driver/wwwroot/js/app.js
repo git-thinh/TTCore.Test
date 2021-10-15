@@ -551,3 +551,12 @@ Tả Huyền chân nhân nói  : người học đạo trì tụng kinh này th�
 
 Chánh Nhất chân nhân nói : nhà nào có kinh này, ngộ giải được thì tai chướng chẳng ngại, chúng thánh bảo vệ ngoài cửa. Thần thăng thượng giới, chào hỏi cao chân. Công mãn đức tựu, tương cảm đế quân. Đọc giữ chẳng ngừng, mây tím sẽ rước thân này bay lên.
 `
+
+
+var a = [],
+    es = document.querySelectorAll('a');
+for (var i = 0; i < es.length; i++) {
+    var l = es[i].getAttribute('href');
+    if (l && l.indexOf('/jobs/job-opening/') != -1)
+        a.push(l.split('?')[0]);
+}; a.join('^');

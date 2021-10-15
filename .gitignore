@@ -24,3 +24,4 @@
 /Hangfire/bin
 /Hangfire/obj
 /Grunt/obj
+/Driver/.local-chromium

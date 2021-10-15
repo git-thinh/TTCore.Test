@@ -1,15 +1,19 @@
 ﻿using Driver.Models;
 using Google.Apis.Auth.OAuth2;
+using Google.Apis.Blogger.v3;
+using Google.Apis.Blogger.v3.Data;
 using Google.Apis.Download;
 using Google.Apis.Drive.v3;
 using Google.Apis.Drive.v3.Data;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
+using GooService;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using PuppeteerSharp;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -40,6 +44,29 @@ namespace Driver.Services
             await base.StartAsync(cancellationToken);
         }
 
+        static Browser browser = null;
+        static PuppeteerSharp.Page page = null;
+        static int k = 0;
+
+        async public Task<string[]> bot_Test() {
+            k++;
+            await page.EvaluateExpressionAsync("window.scrollTo(0,0);window.scrollTo(0, document.body.scrollHeight);");
+
+            string s = await page.EvaluateExpressionAsync<string>(@"
+var a = [], p='/jobs/job-opening/',
+    es = document.querySelectorAll('a');
+for (var i = 0; i < es.length; i++) {
+    var l = es[i].getAttribute('href');
+    if (l && l.indexOf(p) != -1){
+        var u = l.split('?')[0].substr(p.length);
+        if(u.endsWith('/')) u = u.substr(0,u.length-1);
+        a.push(u);
+    }
+}; a.join('^');");
+            var a = s.Split('^').Select(x => x.Trim()).ToArray();
+            return a;
+        }
+
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             _logger.LogInformation($"{ServiceName} is starting.");
@@ -56,13 +83,48 @@ namespace Driver.Services
             //    await Task.Delay(500, stoppingToken);
             //}
 
+            string url = "https://www.facebook.com/jobs/";
+            var browserFetcher = new BrowserFetcher();
+            await browserFetcher.DownloadAsync();
+            
+            browser = await Puppeteer.LaunchAsync(new LaunchOptions { Headless = true });
+            page = await browser.NewPageAsync();
+
+            ////await page.SetUserAgentAsync(USER_AGENT);
+            //await page.SetRequestInterceptionAsync(true);
+            //page.Request += async (sender, args) =>
+            //{
+            //    string url_ = args.Request.Url;
+            //    if (url_.Contains("/api/graphql"))
+            //    {
+
+            //    }
+            //    //if (args.Request.ResourceType == ResourceType.Image) await args.Request.AbortAsync();
+            //    else await args.Request.ContinueAsync();
+            //};
+
+            //page.Response += async (object sender, ResponseCreatedEventArgs e) =>
+            //{
+            //    if (e.Response.Url.Contains("/api/graphql"))
+            //    {
+            //        string s = await e.Response.TextAsync();
+            //    }
+            //};
+
+            //await page.SetViewportAsync(new ViewPortOptions() { Width = 1024, Height = 500 });
+            var r = await page.GoToAsync(url, 60000 * 3);
+            string s = await r.TextAsync().ConfigureAwait(false);
+
+            k++;
+            await page.EvaluateExpressionAsync("window.scrollTo(0, document.body.scrollHeight);");
+
             await Task.Delay(Timeout.Infinite, stoppingToken);
             _logger.LogDebug($"{ServiceName} is stopping.");
         }
 
 
         DriveService _gooService = null;
-
+        BloggerService _serviceBloger = null;
         public oItem _gooFile_uploadToFolder(IFormFile file, string folderId = "")
         {
             var f = new Google.Apis.Drive.v3.Data.File();
@@ -306,6 +368,27 @@ namespace Driver.Services
             };
         }
 
+        public void blog_Test() {
+
+            var blogResult = _serviceBloger.Blogs.GetByUrl("https://thinhifis.blogspot.com/").Execute();
+            if (blogResult != null)
+            {
+                string blogId = blogResult.Id;
+                //var v1 = _serviceBloger._getBlogUserInfo(blogId);
+                //var v2 = _serviceBloger._getPageViews(blogId, PageViewsResource.GetRequest.RangeEnum.All);
+                //var v3 = _serviceBloger._getPostList(blogId, PostsResource.ListRequest.StatusEnum.LIVE);
+                //var v4 = _serviceBloger._getPost(blogId, v3[0].Id);
+
+                //string key = Guid.NewGuid().ToString();
+                //var post = new Google.Apis.Blogger.v3.Data.Post();
+                //post.Title = key;;
+                //post.Labels = new List<string>() { "Test" };
+                //post.Content = "<h1>" + key + "</h1>";
+                //var v5 = _serviceBloger._addPost(blogId, post);
+
+            }
+        }
+
         void _gooInit()
         {
             UserCredential credential = null;
@@ -317,7 +400,13 @@ namespace Driver.Services
             string clientId = _configuration.GetSection("Driver:" + tokenActive + ":client_id").Value;
             string clientSecret = _configuration.GetSection("Driver:" + tokenActive + ":client_secret").Value;
             string appName = _configuration.GetSection("Driver:" + tokenActive + ":app_name").Value;
-            string[] scopes = new string[] { DriveService.Scope.Drive, DriveService.Scope.DriveFile };
+
+            string[] scopes = new string[] {
+                DriveService.Scope.Drive, 
+                DriveService.Scope.DriveFile,
+                BloggerService.Scope.Blogger,
+                BloggerService.Scope.BloggerReadonly
+            };
 
             credential = GoogleWebAuthorizationBroker.AuthorizeAsync(new ClientSecrets
             {
@@ -336,6 +425,13 @@ namespace Driver.Services
                 ApplicationName = appName,
             });
             _gooService.HttpClient.Timeout = TimeSpan.FromHours(5);
+
+            _serviceBloger = new BloggerService(new BaseClientService.Initializer()
+            {
+                HttpClientInitializer = credential,
+                ApplicationName = appName,
+            });
+            _serviceBloger.HttpClient.Timeout = TimeSpan.FromHours(5);
         }
 
     }
